@@ -4,12 +4,14 @@ format: html
 editor: visual
 ---
 
-This project was developed by **\[Team Name\]** For [INFO 523 - Data Mining and Discovery](https://datamineaz.org/) at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.
+This project was developed by **The AlgoRhythms** For [INFO 523 - Data Mining and Discovery](https://datamineaz.org/) at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.
 
--   Team member 1: One sentence description of Team member 1 (e.g., year, major, etc.).
+-   Visalakshi Iyer
 
--   Team member 2: One sentence description of Team member 2 (e.g., year, major, etc.).
+-   Avikal Singh
 
--   Team member 3: One sentence description of Team member 3 (e.g., year, major, etc.).
+-   Poojitha Pasala
 
--   Team member 4: One sentence description of Team member 4 (e.g., year, major, etc.).
+-   Himanshu Deore
+
+-   Shakir Ahmed
