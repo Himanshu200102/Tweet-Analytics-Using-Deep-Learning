@@ -21,7 +21,7 @@ Unleashing the Power of Twitter to strengthen Disaster Response and safeguard pu
 ## **Goal Description & Motivation:**
 
 Social media platforms like Twitter provide an unprecedented opportunity to access a vast amount of information and gain insights directly from those affected by disasters. By analyzing the conversations and trends on Twitter during such situations, the project aims to uncover patterns, validate the truthfulness of information, improve situational awareness, and ultimately contribute to the resilience and safety of individuals and communities faced with critical events.\
-The major motivation behind the proposed project is to save lives and improve public safety by harnessing the power of Twitter data to access real-time information, understand & validate public sentiment.\
+The major motivation behind the proposed project is to save lives and improve public safety by harnessing the power of Twitter data to access real-time information, understand & validate public sentiment.
 
 ## Dataset
 
@@ -104,6 +104,10 @@ Week 1:
     -   Train and validate the model
 
     -   Test on new tweets
+
+Week 2:
+
+-   
 
 Week 5:
 
