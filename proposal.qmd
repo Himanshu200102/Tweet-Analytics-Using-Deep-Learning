@@ -75,47 +75,49 @@ The dynamic nature of disasters and calamities demands a proactive approach to i
 
 ## Analysis Plan
 
+For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project an deploy a fully functional real-time classifier from the Twitter API. The plan is split into 5 weeks, with each of the key milestones described as follows:
+
 Week 1:
 
 -   Dataset Exploration
 
-    -   Extract characteristics from the dataset, like UserID, Message Content, Location, etc
+    -   Extract characteristics from the dataset, like UserID, Message Content, Location, etc.
 
-    -   Convert to Binary Classes
+    -   Convert to Binary Classes.
 
 -   Data Preprocessing
 
-    -   Null value and Duplicate value treatment
+    -   Null value and Duplicate value treatment.
 
-    -   Text Cleaning (removing special characters, stop words)
+    -   Text Cleaning (removing special characters, stop words).
 
-    -   Split Dataset into Training and Testing
+    -   Split Dataset into Training and Testing.
 
 -   Feature Extraction
 
-    -   Tokenization
+    -   Tokenization.
 
-    -   Stemming
+    -   Stemming.
 
-    -   Lemmatization
+    -   Lemmatization.
 
 -   Classification
 
-    -   Train and validate the model
+    -   Train and validate the model.
 
-    -   Test on new tweets
+    -   Test on new tweets.
 
 Week 2:
 
 -   Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
 
--   Link the entities to tweets and save the information
+-   Link the entities to tweets and save the information.
 
 Week 3:
 
--   Prepare a streaming client to extract tweets in real-time using API
+-   Prepare a streaming client to extract tweets in real-time using API.
 
--   Define fintering parameters to separate disaster-related tweets
+-   Define filtering parameters to separate disaster-related tweets.
 
 -   Process and store the incoming tweet data along with the extracted results from the tweet data.
 
@@ -127,16 +129,22 @@ Week 4:
 
 Week 5:
 
--   Create an interface for the analysis dashboard
+-   Create an interface for the analysis dashboard.
 
--   Use maps to indicate affected locations
+-   Use maps to indicate affected locations.
 
 -   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
 
 Week 6:
 
--   Deploy the GUI and test on real-time data
+-   Deploy the GUI and test on real-time data.
 
--   Make changes according to feedback
+-   Make changes according to feedback.
 
--   Make the final presentation for showcase
+-   Make the final presentation for showcase.
+
+::: callout-note
+## Note:
+
+These are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach might change in the final project.
+:::
