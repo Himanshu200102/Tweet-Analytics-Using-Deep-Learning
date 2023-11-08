@@ -75,4 +75,48 @@ The dynamic nature of disasters and calamities demands a proactive approach to i
 
 ## Analysis Plan
 
--   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+Week 1:
+
+-   Dataset Exploration
+
+    -   Extract characteristics from the dataset, like UserID, Message Content, Location, etc
+
+    -   Convert to Binary Classes
+
+-   Data Preprocessing
+
+    -   Null value and Duplicate value treatment
+
+    -   Text Cleaning (removing special characters, stop words)
+
+    -   Split Dataset into Training and Testing
+
+-   Feature Extraction
+
+    -   Tokenization
+
+    -   Stemming
+
+    -   Lemmatization
+
+-   Classification
+
+    -   Train and validate the model
+
+    -   Test on new tweets
+
+Week 5:
+
+-   Create an interface for the analysis dashboard
+
+-   Use maps to indicate affected locations
+
+-   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
+
+Week 6:
+
+-   Deploy the GUI and test on real-time data
+
+-   Make changes according to feedback
+
+-   Make the final presentation for showcase
