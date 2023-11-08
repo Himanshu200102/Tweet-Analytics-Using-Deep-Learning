@@ -5,40 +5,74 @@ format: html
 editor: visual
 ---
 
-```{r}
-#| label: load-pkgs
-#| message: false
-library(tidyverse)
+```{r load-packages, echo=FALSE, message=FALSE, warning=FALSE}
+
+if(!require(pacman))
+  install.packages("pacman")
+
+pacman::p_load(here, tidyverse, dplyr,
+               formattable)
 ```
 
 ## High Level Goal
 
 Unleashing the Power of Twitter to strengthen Disaster Response and safeguard public safety during Critical Events
 
-## **Goal & Motivation:**
+## **Goal Description & Motivation:**
 
 Social media platforms like Twitter provide an unprecedented opportunity to access a vast amount of information and gain insights directly from those affected by disasters. By analyzing the conversations and trends on Twitter during such situations, the project aims to uncover patterns, validate the truthfulness of information, improve situational awareness, and ultimately contribute to the resilience and safety of individuals and communities faced with critical events.\
 The major motivation behind the proposed project is to save lives and improve public safety by harnessing the power of Twitter data to access real-time information, understand & validate public sentiment.\
 
 ## Dataset
 
-```{r}
-#| label: load-dataset
-#| message: false
-```
+[The **CREDBANK** dataset](https://github.com/compsocial/CREDBANK-data) is a large-scale social media corpus. It consists of streaming tweets tracked over this period, topics in this tweet stream, topics classified as events or non-events, and events annotated with credibility ratings. The data is spread across four files, including a file containing more than 169 million streaming tweets and a file containing more than 62,000 topics. Each topic is represented by three terms, corresponding to the top three terms returned by running topic modeling (LDA) over the streaming tweets.
 
-[The **CREDBANK** dataset](https://github.com/compsocial/CREDBANK-data) is a large-scale social media corpus. It consists of streaming tweets tracked over this period, topics in this tweet stream, topics classified as events or non-events, and events annotated with credibility ratings. The data is spread across four files, including a file containing more than 169 million streaming tweets and a file containing more than 62,000 topics. Each topic is represented by three terms, corresponding to the top three terms returned by running topic modeling (LDA) over the streaming tweets.\
+There are two main files associated with credibility annotations:
+
+-   [cred_event_TurkRatings.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_TurkRatings.data) - credibility ratings and reasonings entered by turkers for each topic. Each row has following tab separated fields:
+
+    ```{r table-one, echo=FALSE, message = FALSE, warning=FALSE}
+
+    tibble(topic_key = "louis_ebola_nurse-20141024_170629-20141024_181626",
+           topic_terms = c("'louis', 'ebola', 'nurse'"),
+           Ratings_list = c("'1', '-1', '2', '-2', '0', '2', '0', '....'"),
+           Reasons_list = c("'Nurses union describes the procedures taken by nurse who now has Ebola from treating a patient.', '.....'")
+          ) |>
+      formattable()
+
+
+
+    ```
+
+    This dataset will be used to train the model on the credibility of the tweet
+
+-   [cred_event_SearhTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
+
+    ```{r table-two, echo=FALSE, message = FALSE, warning=FALSE}
+
+    tibble(topic_key = "louis_ebola_nurse-20141024_170629-20141024_181626",
+           topic_terms = c("'louis', 'ebola', 'nurse'"),
+           tweet_count = 13243,
+           ListOf_tweetid_author_createdAt_tuple = "[('ID=522760301435830272', 'AUTHOR=iMhartyz', 'CreatedAt=2014-10-16 14:45:42'), ......]"
+          ) |>
+      formattable()
+    ```
+
+    This dataset will be used as an index to fetch and test specific types of disaster tweets (like earthquake).
+
 On the other hand, the [**academictwitteR**](https://github.com/cjbarrie/academictwitteR) package is an R package designed to collect tweets from the v2 API endpoint for the Academic Research Product Track. It provides access to full-archive search and other v2 API endpoints. The package has been designed with the efficient storage of data in mind. Queries to the API include arguments to specify whether tweets should be stored as a .rds file or as separate JSON files for tweet- and user-level information separately.\
-Our Python application can leverage these datasets to analyze tweets and classify them into real or fake. This can be particularly useful for disaster management departments, as the analysis of these tweets can help extract crucial information, such as the geolocation of the tweet, which can be used to send help to those in need. The combination of these two sources provides a rich and comprehensive dataset for your application. The credibility annotations in the CREDBANK data can aid in the fake/real classification, while the academictwitteR package can help in collecting real-time data for ongoing analysis.
+Our Python application can leverage these datasets to analyze tweets and classify them into real or fake. This can be particularly useful for disaster management departments, as the analysis of these tweets can help extract crucial information, such as the geolocation of the tweet, which can be used to send help to those in need.
+
+The combination of these two sources provides a rich and comprehensive dataset for your application. The credibility annotations in the CREDBANK data can aid in the fake/real classification, while the academictwitteR package can help in collecting real-time data for ongoing analysis.
 
 ## Reason For Choosing This Source
 
-These dataset's not only provide a large volume of data but also offer unique features that align well with our project\'s objectives. The combination of historical data from `CREDBANK` and real-time data from `academictwitteR` can provide a robust foundation for the tweet analysis application.
+These dataset's not only provide a large volume of data but also offer unique features that align well with our project's objectives. The combination of historical data from `CREDBANK` and real-time data from `academictwitteR` can provide a robust foundation for the tweet analysis application.
 
 ## Problem Statement
 
 The dynamic nature of disasters and calamities demands a proactive approach to information gathering and analysis. Traditional methods often fail to adapt quickly to evolving situations, hindering the ability of emergency responders to anticipate needs and allocate resources effectively. Furthermore, ensuring the reliability and credibility of the information shared on Twitter during these events is crucial, as misinformation and rumors can lead to panic and confusion among the affected population.
 
-## Analysis plan
+## Analysis Plan
 
 -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
