@@ -16,7 +16,7 @@ pacman::p_load(here, tidyverse, dplyr,
 
 ## High Level Goal
 
-Unleashing the Power of Twitter to strengthen Disaster Response and safeguard public safety during Critical Events
+Unleashing the Power of Twitter to strengthen Disaster Response and safeguard public safety during Critical Events.
 
 ## **Goal Description & Motivation:**
 
@@ -29,7 +29,7 @@ The major motivation behind the proposed project is to save lives and improve pu
 
 There are two main files associated with credibility annotations:
 
--   [cred_event_TurkRatings.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_TurkRatings.data) - credibility ratings and reasonings entered by turkers for each topic. Each row has following tab separated fields:
+-   [cred_event_TurkRatings.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_TurkRatings.data) - credibility ratings and reasoning entered by turkers for each topic. Each row has following tab separated fields:
 
     ```{r table-one, echo=FALSE, message = FALSE, warning=FALSE}
 
@@ -44,7 +44,7 @@ There are two main files associated with credibility annotations:
 
     ```
 
-    This dataset will be used to train the model on the credibility of the tweet
+    This data set will be used to train the model on the credibility of the tweet
 
 -   [cred_event_SearhTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
 
@@ -61,9 +61,9 @@ There are two main files associated with credibility annotations:
     This dataset will be used as an index to fetch and test specific types of disaster tweets (like earthquake).
 
 On the other hand, the [**academictwitteR**](https://github.com/cjbarrie/academictwitteR) package is an R package designed to collect tweets from the v2 API endpoint for the Academic Research Product Track. It provides access to full-archive search and other v2 API endpoints. The package has been designed with the efficient storage of data in mind. Queries to the API include arguments to specify whether tweets should be stored as a .rds file or as separate JSON files for tweet- and user-level information separately.\
-Our Python application can leverage these datasets to analyze tweets and classify them into real or fake. This can be particularly useful for disaster management departments, as the analysis of these tweets can help extract crucial information, such as the geolocation of the tweet, which can be used to send help to those in need.
+Our Python application can leverage these data sets to analyze tweets and classify them into real or fake. This can be particularly useful for disaster management departments, as the analysis of these tweets can help extract crucial information, such as the geolocation of the tweet, which can be used to send help to those in need.
 
-The combination of these two sources provides a rich and comprehensive dataset for your application. The credibility annotations in the CREDBANK data can aid in the fake/real classification, while the academictwitteR package can help in collecting real-time data for ongoing analysis.
+The combination of these two sources provides a rich and comprehensive data set for your application. The credibility annotations in the CREDBANK data can aid in the fake/real classification, while the academictwitteR package can help in collecting real-time data for ongoing analysis.
 
 ## Reason For Choosing This Source
 
