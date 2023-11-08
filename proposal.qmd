@@ -75,7 +75,7 @@ The dynamic nature of disasters and calamities demands a proactive approach to i
 
 ## Analysis Plan
 
-For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project an deploy a fully functional real-time classifier from the Twitter API. The plan is split into 5 weeks, with each of the key milestones described as follows:
+For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project an deploy a fully functional real-time classifier from the Twitter API. The plan is split into 6 weeks, with each of the key milestones described as follows:
 
 Week 1:
 
