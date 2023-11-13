@@ -81,9 +81,7 @@ The dynamic nature of disasters and calamities demands a proactive approach to i
 
 ## Analysis Plan
 
-For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project an deploy a fully functional real-time classifier from the Twitter API. The plan is split into 6 weeks, with each of the key milestones described as follows:
-
-Week 1:
+For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project and deploy a fully functional real-time classifier from the Twitter API. The plan is split into 6 weeks, with each of the key milestones described as follows:
 
 -   Dataset Exploration
 
@@ -113,41 +111,43 @@ Week 1:
 
     -   Test on new tweets.
 
-Week 2:
+-   Write function for Information parsing
 
--   Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
+    -   Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
 
--   Link the entities to tweets and save the information.
+    -   Link the entities to tweets and save the information.
 
-Week 3:
+    -   Prepare a streaming client to extract tweets in real-time using API.
 
--   Prepare a streaming client to extract tweets in real-time using API.
+-   Real-time filtering
 
--   Define filtering parameters to separate disaster-related tweets.
+    -   Define filtering parameters to separate disaster-related tweets.
 
--   Process and store the incoming tweet data along with the extracted results from the tweet data.
+    -   Process and store the incoming tweet data along with the extracted results from the tweet data.
 
-Week 4:
+-   GUI
 
--   Visualize the extracted output in a GUI. This will include showing geographic locations of the affected regions.
+    -   Visualize the extracted output in a GUI. This will include showing geographic locations of the affected regions.
 
--   Add a dashboard to this GUI that provides better analysis of the extracted information.
+    -   Add a dashboard to this GUI that provides better analysis of the extracted information.
 
-Week 5:
+    -   Create an interface for the analysis dashboard.
 
--   Create an interface for the analysis dashboard.
+    -   It will collect straightforward user inputs, such as precise disaster-related #tags, a specific country, and a defined time range for the events.
 
--   Use maps to indicate affected locations.
+    -   The interface will display tweets that can be scrolled through, and it will highlight regions affected by disasters on the map.
 
--   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
+    -   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
 
-Week 6:
+-   Deploy and Test
 
--   Deploy the GUI and test on real-time data.
+    -   Deploy the GUI and test on real-time data.
 
--   Make changes according to feedback.
+    -   Make changes according to feedback.
 
--   Make the final presentation for showcase.
+-   Present
+
+    -   Make the final presentation for showcase.
 
 ::: callout-note
 ## Note:
@@ -157,30 +157,40 @@ These are the planned approaches, and we intend to explore and solve the problem
 
 ## Repo Organization
 
--   .github: This directory contain files related to GitHub, such as workflows, issue templates, or other configurations.
+-   `.github`: This directory contain files related to GitHub, such as workflows, issue templates, or other configurations.
 
--   . \_extra: Contains code, notes and other files used during experimentation. Contents of this folder is not a part of the final output.
+-   `. _extra`: Contains code, notes and other files used during experimentation. Contents of this folder is not a part of the final output.
 
--   \_freeze: The folder created to store files generated during project render.
+-   `_freeze`: The folder created to store files generated during project render.
 
--   data: This folder contains data files or datasets that are used in the project.
+-   `data/`: This folder contains data files or datasets that are used in the project.
 
     -   README.md : A readme file that describes the datasets in more detail.
 
--   images: This folder contains image files that are used in the project, such as illustrations, diagrams, or other visual assets.
+-   `images`: This folder contains image files that are used in the project, such as illustrations, diagrams, or other visual assets.
 
--   gitignore: This file specifies which files or directories should be ignored by version control.
+-   `.gitignore`: This file specifies which files or directories should be ignored by version control.
 
--   README.md: This file usually contains documentation or information about the project. It's often the first thing someone reads when they visit the project repository.
+-   `README.md`: This file usually contains documentation or information about the project. It's often the first thing someone reads when they visit the project repository.
 
--   \_quarto.yml: This is likely a configuration file
+-   `_quarto.yml`: This is likely a configuration file
 
--   about.qmd : This quarto document contains the information about team members.
+-   `about.qmd` : This quarto document contains the information about team members.
 
--   index.qmd : This quarto document contains the approach and analysis and results of the project.
+-   `index.qmd` : This quarto document contains the approach and analysis and results of the project.
 
--   presentation.qmd : It contains the slides for the presentation.
+-   `presentation.qmd` : It contains the slides for the presentation.
 
--   proposal.qmd : This quarto documents has the proposal of the project.
+-   `proposal.qmd` : This quarto documents has the proposal of the project.
 
--   project-final.Rproj : This is an RStudio project file, which helps organize R-related files and settings for the project.
+-   `project-final.Rproj` : This is an RStudio project file, which helps organize R-related files and settings for the project.
+
+## Plan of Attack
+
+| Week            | Weekly Task                                                                                                                                       | Members Responsible |
+|------------------------|------------------------|------------------------|
+| Week 1          | Proposal.                                                                                                                                         | Everyone            |
+| Week 2          | Data Exploration and Preprocessing.                                                                                                               | Everyone            |
+| Week 3 - Week 4 | Working on setting up the API and Extracting Feature using methods like Tokenization, lemmatization etc. and train Models and perform prediction. | TBD                 |
+| Week 5          | Visualize the output by working on developing a GUI.                                                                                              | TBD                 |
+| Week 6          | Finalizing the project and complete preparing a presentation.                                                                                     | TBD                 |

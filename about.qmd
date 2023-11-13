@@ -12,6 +12,6 @@ This project was developed by **The AlgoRhythms** For [INFO 523 - Data Mining an
 
 -   Poojitha Pasala
 
--   Himanshu Deore
+-   Himanshu Nimbarte
 
 -   Shakir Ahmed
