@@ -46,7 +46,7 @@ There are two main files associated with credibility annotations:
 
     This data set will be used to train the model on the credibility of the tweet
 
--   [cred_event_SearhTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
+-   [cred_event_SearchTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
 
     ```{r table-two, echo=FALSE, message = FALSE, warning=FALSE}
 
@@ -68,6 +68,12 @@ The combination of these two sources provides a rich and comprehensive data set 
 ## Reason For Choosing This Source
 
 These dataset's not only provide a large volume of data but also offer unique features that align well with our project's objectives. The combination of historical data from `CREDBANK` and real-time data from `academictwitteR` can provide a robust foundation for the tweet analysis application.
+
+::: {.callout-note appearance="minimal"}
+## Model Training
+
+This dataset dates from corpus was collected between mid October 2014 and end of February 2015. We will improvise on the results of the model training based on the results of this corpus. If the performance on the recent tweets are not up to the expectations, then additional data will be acquired using real-time API.
+:::
 
 ## Problem Statement
 
@@ -148,3 +154,33 @@ Week 6:
 
 These are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach might change in the final project.
 :::
+
+## Repo Organization
+
+-   .github: This directory contain files related to GitHub, such as workflows, issue templates, or other configurations.
+
+-   . \_extra: Contains code, notes and other files used during experimentation. Contents of this folder is not a part of the final output.
+
+-   \_freeze: The folder created to store files generated during project render.
+
+-   data: This folder contains data files or datasets that are used in the project.
+
+    -   README.md : A readme file that describes the datasets in more detail.
+
+-   images: This folder contains image files that are used in the project, such as illustrations, diagrams, or other visual assets.
+
+-   gitignore: This file specifies which files or directories should be ignored by version control.
+
+-   README.md: This file usually contains documentation or information about the project. It's often the first thing someone reads when they visit the project repository.
+
+-   \_quarto.yml: This is likely a configuration file
+
+-   about.qmd : This quarto document contains the information about team members.
+
+-   index.qmd : This quarto document contains the approach and analysis and results of the project.
+
+-   presentation.qmd : It contains the slides for the presentation.
+
+-   proposal.qmd : This quarto documents has the proposal of the project.
+
+-   project-final.Rproj : This is an RStudio project file, which helps organize R-related files and settings for the project.
