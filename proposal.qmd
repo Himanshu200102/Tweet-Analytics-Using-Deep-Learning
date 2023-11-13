@@ -121,7 +121,9 @@ For the project, we are going to split into weekly milestones and attack the pro
 
 -   Create an interface for the analysis dashboard.
 
--   Use maps to indicate affected locations.
+-   It will collect straightforward user inputs, such as precise disaster-related #tags, a specific country, and a defined time range for the events.
+
+-   The interface will display tweets that can be scrolled through, and it will highlight regions affected by disasters on the map.
 
 -   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
 
