@@ -77,8 +77,6 @@ The dynamic nature of disasters and calamities demands a proactive approach to i
 
 For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project an deploy a fully functional real-time classifier from the Twitter API. The plan is split into 6 weeks, with each of the key milestones described as follows:
 
-Week 1:
-
 -   Dataset Exploration
 
     -   Extract characteristics from the dataset, like UserID, Message Content, Location, etc.
@@ -107,13 +105,9 @@ Week 1:
 
     -   Test on new tweets.
 
-Week 2:
-
 -   Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
 
 -   Link the entities to tweets and save the information.
-
-Week 3:
 
 -   Prepare a streaming client to extract tweets in real-time using API.
 
@@ -121,21 +115,15 @@ Week 3:
 
 -   Process and store the incoming tweet data along with the extracted results from the tweet data.
 
-Week 4:
-
 -   Visualize the extracted output in a GUI. This will include showing geographic locations of the affected regions.
 
 -   Add a dashboard to this GUI that provides better analysis of the extracted information.
-
-Week 5:
 
 -   Create an interface for the analysis dashboard.
 
 -   Use maps to indicate affected locations.
 
 -   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
-
-Week 6:
 
 -   Deploy the GUI and test on real-time data.
 
@@ -148,3 +136,13 @@ Week 6:
 
 These are the planned approaches, and we intend to explore and solve the problem statement which we came up with. Parts of our approach might change in the final project.
 :::
+
+## Plan of Attack
+
+| Week            | Weekly Task                                                                                                                                      | Members Responsible |
+|------------------------|------------------------|------------------------|
+| Week 1          | Proposal.                                                                                                                                        | Everyone            |
+| Week 2          | Data Exploration and Preprocessing.                                                                                                              | Everyone            |
+| Week 3 - Week 4 | Working on setting up the API and Extracting Featre using methods like Tokenization, lemmatization etc. and train Models and perform prediction. | TBD                 |
+| Week 5          | Visualize the output by working on developing a GUI.                                                                                             | TBD                 |
+| Week 6          | Finalizing the project and complete preparing a presentation.                                                                                    | TBD                 |
