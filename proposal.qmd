@@ -95,7 +95,7 @@ For the project, we are going to split into weekly milestones and attack the pro
 
 -   Split dataset into training and testing.
 
-**Visalakshi:** - Feature Extraction
+**Visalakshi, Himanshu and Avikal:** - Feature Extraction
 
 -   Tokenization.
 
@@ -131,7 +131,7 @@ For the project, we are going to split into weekly milestones and attack the pro
 
 **Week 5:**
 
--   **Avikal and Shakir:** Create an interface for the analysis dashboard.
+-   **Avika;, Shakir and Visalakshi:** Create an interface for the analysis dashboard.
 
 -   **Visalakshi and Himanshu:** Use maps to indicate affected locations.
 
