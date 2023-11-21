@@ -77,7 +77,9 @@ The dynamic nature of disasters and calamities demands a proactive approach to i
 
 For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project an deploy a fully functional real-time classifier from the Twitter API. The plan is split into 6 weeks, with each of the key milestones described as follows:
 
-Week 1:
+**Week 1:**
+
+**Avikal and Himanshu:**
 
 -   Dataset Exploration
 
@@ -85,63 +87,63 @@ Week 1:
 
     -   Convert to Binary Classes.
 
--   Data Preprocessing
+**Shakir:** - Data Preprocessing
 
-    -   Null value and Duplicate value treatment.
+-   Null value and Duplicate value treatment.
 
-    -   Text Cleaning (removing special characters, stop words).
+-   Text Cleaning (removing special characters, stop words).
 
-    -   Split Dataset into Training and Testing.
+-   Split dataset into training and testing.
 
--   Feature Extraction
+**Visalakshi:** - Feature Extraction
 
-    -   Tokenization.
+-   Tokenization.
 
-    -   Stemming.
+-   Stemming.
 
-    -   Lemmatization.
+-   Lemmatization.
 
--   Classification
+**All members:** - Classification
 
-    -   Train and validate the model.
+-   Train and validate the model.
 
-    -   Test on new tweets.
+-   Test on new tweets.
 
-Week 2:
+**Week 2:**
 
--   Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
+-   **Avikal, Visalakshi and Shakir:** Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
 
--   Link the entities to tweets and save the information.
+-   **Himanshu and Poojitha:** Link the entities to tweets and save the information.
 
-Week 3:
+**Week 3:**
 
--   Prepare a streaming client to extract tweets in real-time using API.
+-   **Visalakshi and Avikal:** Use python Tweepy to extract information and setup data flow.
 
--   Define filtering parameters to separate disaster-related tweets.
+-   **Shakir:** Define filtering parameters to separate disaster-related tweets.
 
--   Process and store the incoming tweet data along with the extracted results from the tweet data.
+-   **Poojitha and Himanshu:** Process and store the incoming tweet data along with the extracted results from the tweet data.
 
-Week 4:
+**Week 4:**
 
--   Visualize the extracted output in a GUI. This will include showing geographic locations of the affected regions.
+-   **Everyone:** Visualize the extracted output in a GUI. This will include showing geographic locations of the affected regions.
 
--   Add a dashboard to this GUI that provides better analysis of the extracted information.
+-   **Everyone:** Add a dashboard to this GUI that provides better analysis of the extracted information.
 
-Week 5:
+**Week 5:**
 
--   Create an interface for the analysis dashboard.
+-   **Avikal and Shakir:** Create an interface for the analysis dashboard.
 
--   Use maps to indicate affected locations.
+-   **Visalakshi and Himanshu:** Use maps to indicate affected locations.
 
--   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
+-   **Poojitha:** Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
 
-Week 6:
+**Week 6:**
 
--   Deploy the GUI and test on real-time data.
+-   **Everyone:** Deploy the GUI and test on real-time data.
 
--   Make changes according to feedback.
+-   **Everyone:** Make changes according to feedback.
 
--   Make the final presentation for showcase.
+-   **Everyone:** Make the final presentation for showcase.
 
 ::: callout-note
 ## Note:
