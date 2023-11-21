@@ -29,7 +29,9 @@ The major motivation behind the proposed project is to save lives and improve pu
 
 There are two main files associated with credibility annotations:
 
--   [cred_event_TurkRatings.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_TurkRatings.data) - credibility ratings and reasoning entered by turkers for each topic. Each row has following tab separated fields:
+-   [cred_event_TurkRatings.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_TurkRatings.data) - credibility ratings and reasoning entered by turkers\*\* for each topic. Each row has following tab separated fields:
+
+    **Data Glimpse**
 
     ```{r table-one, echo=FALSE, message = FALSE, warning=FALSE}
 
@@ -44,9 +46,37 @@ There are two main files associated with credibility annotations:
 
     ```
 
+    **Data Description**
+
+    +-------------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Column Name       | Data Type                    | Description                                                                                                                                                                                                    |
+    +===================+==============================+================================================================================================================================================================================================================+
+    | topic_key         | String                       | This is a combination of the time_key and topic_terms from the Topic File. The entries in the Topic File which were marked as event (isEvent = 1) have credibility ratings in the credibility annotation file. |
+    +-------------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | topic_terms       | List                         | A list of 3 terms corresponding to the top 3 terms in each topic.                                                                                                                                              |
+    +-------------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Ratings_list      | List                         | A list of 30 credibility ratings entered by Turkers\*\*. The ratings are based on a 5-point Likert scale ranging from \[-2 to +2\]:                                                                            |
+    |                   |                              |                                                                                                                                                                                                                |
+    |                   |                              | -   \[-2\] Certainly Inaccurate                                                                                                                                                                                |
+    |                   |                              |                                                                                                                                                                                                                |
+    |                   |                              | -   \[-1\] Probably Inaccurate                                                                                                                                                                                 |
+    |                   |                              |                                                                                                                                                                                                                |
+    |                   |                              | -   \[0\] Uncertain (Doubtful)                                                                                                                                                                                 |
+    |                   |                              |                                                                                                                                                                                                                |
+    |                   |                              | -   \[+1\] Probably Accurate                                                                                                                                                                                   |
+    |                   |                              |                                                                                                                                                                                                                |
+    |                   |                              | -   \[+2\] Certainly Accurate                                                                                                                                                                                  |
+    +-------------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Reasons_List      | List of Strings              | A list of 30 reasons corresponding to the ratings entered by the Turkers\*\*.                                                                                                                                  |
+    +-------------------+------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
     This data set will be used to train the model on the credibility of the tweet
 
+    *\*\* Turkers are remote "crowdworkers" hired to perform discrete tasks on-demand (as the rating the credibility by parsing each"*
+
 -   [cred_event_SearhTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
+
+    **Data Glimpse**
 
     ```{r table-two, echo=FALSE, message = FALSE, warning=FALSE}
 
@@ -58,10 +88,95 @@ There are two main files associated with credibility annotations:
       formattable()
     ```
 
+    **Data Description**
+
+    +---------------------------------------+-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Column Name                           | Data Type                     | Description                                                                                                                                                                                                    |
+    +=======================================+===============================+================================================================================================================================================================================================================+
+    | topic_key                             | String                        | This is a combination of the time_key and topic_terms from the Topic File. The entries in the Topic File which were marked as event (isEvent = 1) have credibility ratings in the credibility annotation file. |
+    +---------------------------------------+-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | topic_terms                           | List                          | A list of 3 terms corresponding to the top 3 terms in each topic.                                                                                                                                              |
+    +---------------------------------------+-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | tweet_count                           | Long Int                      | Total number of tweets returned by the search API for the topic_terms.                                                                                                                                         |
+    +---------------------------------------+-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | ListOf_tweetid_author_createdAt_tuple | List of Tuple Objects         | A list of tuples, where each tuple contains three fields: tweet ID , tweet author , tweet creation date                                                                                                        |
+    +---------------------------------------+-------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
     This dataset will be used as an index to fetch and test specific types of disaster tweets (like earthquake).
 
-On the other hand, the [**academictwitteR**](https://github.com/cjbarrie/academictwitteR) package is an R package designed to collect tweets from the v2 API endpoint for the Academic Research Product Track. It provides access to full-archive search and other v2 API endpoints. The package has been designed with the efficient storage of data in mind. Queries to the API include arguments to specify whether tweets should be stored as a .rds file or as separate JSON files for tweet- and user-level information separately.\
-Our Python application can leverage these data sets to analyze tweets and classify them into real or fake. This can be particularly useful for disaster management departments, as the analysis of these tweets can help extract crucial information, such as the geolocation of the tweet, which can be used to send help to those in need.
+For streaming API, we will be using tweepy, a python package meand for extracting real-time tweets using keywords. It will be authenticated using a developer account from the v2 API endpoint. This endpoint will serve on a free tier to fetch and consume streaming data from twitter (https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data). The individual data streamed by this API are JSON encoded, and fall into the following types:
+
+-   Tweets: Individual Tweet JSON objects
+
+-   Keep-alive Signals: Carriage returns to prevent your connection from timing out
+
+-   System messages: E.g. notification of a force disconnect. Note that the actual disconnection is accomplished via normal HTTP protocols, rather than through the message itself. In some cases the disconnect system message may not arrive, making it critical that you monitor the keep-alive signal (see below for more information).
+
+    -   We will be utilizing the Tweet JSON (shown below) to analyze and classify them into real or fake. This can be particularly useful for disaster management departments, as the analysis of these tweets can help extract crucial information, such as the geolocation of the tweet, which can be used to send help to those in need.
+
+        ```{r, eval=FALSE, collapse=TRUE, message=FALSE}
+        #| code-fold: true
+        #| code-summary: Expand to reveal Tweet JSON output
+
+        {
+          "created_at": "Thu Apr 06 15:24:15 +0000 2017",
+          "id_str": "850006245121695744",
+          "text": "1\/ Today we\u2019re sharing our vision for the future of the Twitter API platform!\nhttps:\/\/t.co\/XweGngmxlP",
+          "user": {
+            "id": 2244994945,
+            "name": "Twitter Dev",
+            "screen_name": "TwitterDev",
+            "location": "Internet",
+            "url": "https:\/\/dev.twitter.com\/",
+            "description": "Your official source for Twitter Platform news, updates & events. Need technical help? Visit https:\/\/twittercommunity.com\/ \u2328\ufe0f #TapIntoTwitter"
+          },
+          "place": {   
+          },
+          "entities": {
+            "hashtags": [      
+            ],
+            "urls": [
+              {
+                "url": "https:\/\/t.co\/XweGngmxlP",
+                "unwound": {
+                  "url": "https:\/\/cards.twitter.com\/cards\/18ce53wgo4h\/3xo1c",
+                  "title": "Building the Future of the Twitter API Platform"
+                }
+              }
+            ],
+            "user_mentions": [     
+            ]
+          }
+        }
+
+        ```
+
+        +------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+        | Key Name   | Data Type       | Description                                                                                                           |
+        +============+=================+=======================================================================================================================+
+        | created_at | String          | UTC time when this Tweet was created.                                                                                 |
+        +------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+        | id_str     | String          | The string representation of the unique identifier for this Tweet.                                                    |
+        +------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+        | text       | String          | The actual UTF-8 text of the status update.                                                                           |
+        +------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+        | user	       | User object     | The user who posted this Tweet. See User data dictionary for complete list of attributes.                             |
+        +------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+        | place      | Places Object   | When present, indicates that the tweet is associated (but not necessarily originating from) a Place.                  |
+        +------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+        | entities   | Entities Object | Entities which have been parsed out of the text of the Tweet. Additionally see Entities in Twitter Objects. Example:\ |
+        |            |                 | { "hashtags":\[\],                                                                                                    |
+        |            |                 |                                                                                                                       |
+        |            |                 | "urls":\[\],                                                                                                          |
+        |            |                 |                                                                                                                       |
+        |            |                 | "user_mentions":\[\],                                                                                                 |
+        |            |                 |                                                                                                                       |
+        |            |                 | "media":\[\],                                                                                                         |
+        |            |                 |                                                                                                                       |
+        |            |                 | "symbols":\[\]                                                                                                        |
+        |            |                 |                                                                                                                       |
+        |            |                 | "polls":\[\] }                                                                                                        |
+        +------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
 
 The combination of these two sources provides a rich and comprehensive data set for your application. The credibility annotations in the CREDBANK data can aid in the fake/real classification, while the academictwitteR package can help in collecting real-time data for ongoing analysis.
 
@@ -183,10 +298,16 @@ These are the planned approaches, and we intend to explore and solve the problem
 
 ## Plan of Attack
 
++-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
 | Week            | Weekly Task                                                                                                                                       | Members Responsible |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
++=================+===================================================================================================================================================+=====================+
 | Week 1          | Proposal.                                                                                                                                         | Everyone            |
++-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
 | Week 2          | Data Exploration and Preprocessing.                                                                                                               | Everyone            |
++-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
 | Week 3 - Week 4 | Working on setting up the API and Extracting Feature using methods like Tokenization, lemmatization etc. and train Models and perform prediction. | TBD                 |
++-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
 | Week 5          | Visualize the output by working on developing a GUI.                                                                                              | TBD                 |
++-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
 | Week 6          | Finalizing the project and complete preparing a presentation.                                                                                     | TBD                 |
++-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
