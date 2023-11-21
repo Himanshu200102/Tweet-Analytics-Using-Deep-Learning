@@ -10,8 +10,8 @@ This project was developed by **The AlgoRhythms** For [INFO 523 - Data Mining an
 
 -   Avikal Singh
 
+-   Shakir Ahmed
+
 -   Poojitha Pasala
 
 -   Himanshu Deore
-
--   Shakir Ahmed
