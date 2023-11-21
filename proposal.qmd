@@ -139,7 +139,7 @@ For the project, we are going to split into weekly milestones and attack the pro
 
 **Week 6:**
 
--   **Everyone:** Deploy the GUI and test on real-time data.
+-   **Everyone:** Deploy the GUI and the data.
 
 -   **Everyone:** Make changes according to feedback.
 
