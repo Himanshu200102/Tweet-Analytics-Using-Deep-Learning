@@ -188,7 +188,7 @@ These are the planned approaches, and we intend to explore and solve the problem
 ## Plan of Attack
 
 | Week            | Weekly Task                                                                                                                                       | Members Responsible |
-|------------------------|------------------------|------------------------|
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | Week 1          | Proposal.                                                                                                                                         | Everyone            |
 | Week 2          | Data Exploration and Preprocessing.                                                                                                               | Everyone            |
 | Week 3 - Week 4 | Working on setting up the API and Extracting Feature using methods like Tokenization, lemmatization etc. and train Models and perform prediction. | TBD                 |
