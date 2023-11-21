@@ -87,7 +87,7 @@ For the project, we are going to split into weekly milestones and attack the pro
 
     -   Convert to Binary Classes.
 
-**Shakir:** - Data Preprocessing
+**Shakir and Poojitha:** - Data Preprocessing
 
 -   Null value and Duplicate value treatment.
 
