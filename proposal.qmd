@@ -46,7 +46,7 @@ There are two main files associated with credibility annotations:
 
     This data set will be used to train the model on the credibility of the tweet
 
--   [cred_event_SearchTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
+-   [cred_event_SearhTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
 
     ```{r table-two, echo=FALSE, message = FALSE, warning=FALSE}
 
@@ -69,19 +69,17 @@ The combination of these two sources provides a rich and comprehensive data set 
 
 These dataset's not only provide a large volume of data but also offer unique features that align well with our project's objectives. The combination of historical data from `CREDBANK` and real-time data from `academictwitteR` can provide a robust foundation for the tweet analysis application.
 
-::: {.callout-note appearance="minimal"}
-## Model Training
-
-This dataset dates from corpus was collected between mid October 2014 and end of February 2015. We will improvise on the results of the model training based on the results of this corpus. If the performance on the recent tweets are not up to the expectations, then additional data will be acquired using real-time API.
-:::
-
 ## Problem Statement
 
 The dynamic nature of disasters and calamities demands a proactive approach to information gathering and analysis. Traditional methods often fail to adapt quickly to evolving situations, hindering the ability of emergency responders to anticipate needs and allocate resources effectively. Furthermore, ensuring the reliability and credibility of the information shared on Twitter during these events is crucial, as misinformation and rumors can lead to panic and confusion among the affected population.
 
 ## Analysis Plan
 
-For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project and deploy a fully functional real-time classifier from the Twitter API. The plan is split into 6 weeks, with each of the key milestones described as follows:
+For the project, we are going to split into weekly milestones and attack the project in a piece by piece method. The goal is to build on the project an deploy a fully functional real-time classifier from the Twitter API. The plan is split into 6 weeks, with each of the key milestones described as follows:
+
+**Week 1:**
+
+**Avikal and Himanshu:**
 
 -   Dataset Exploration
 
@@ -89,65 +87,63 @@ For the project, we are going to split into weekly milestones and attack the pro
 
     -   Convert to Binary Classes.
 
--   Data Preprocessing
+**Shakir and Poojitha:** - Data Preprocessing
 
-    -   Null value and Duplicate value treatment.
+-   Null value and Duplicate value treatment.
 
-    -   Text Cleaning (removing special characters, stop words).
+-   Text Cleaning (removing special characters, stop words).
 
-    -   Split Dataset into Training and Testing.
+-   Split dataset into training and testing.
 
--   Feature Extraction
+**Visalakshi:** - Feature Extraction
 
-    -   Tokenization.
+-   Tokenization.
 
-    -   Stemming.
+-   Stemming.
 
-    -   Lemmatization.
+-   Lemmatization.
 
--   Classification
+**All members:** - Classification
 
-    -   Train and validate the model.
+-   Train and validate the model.
 
-    -   Test on new tweets.
+-   Test on new tweets.
 
--   Write function for Information parsing
+**Week 2:**
 
-    -   Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
+-   **Avikal, Visalakshi and Shakir:** Extract entities from the tweet that include information about geo-location, disaster-type, severity, time elapsed, etc. using NER techniques.
 
-    -   Link the entities to tweets and save the information.
+-   **Himanshu and Poojitha:** Link the entities to tweets and save the information.
 
-    -   Prepare a streaming client to extract tweets in real-time using API.
+**Week 3:**
 
--   Real-time filtering
+-   **Visalakshi and Avikal:** Use python Tweepy to extract information and setup data flow.
 
-    -   Define filtering parameters to separate disaster-related tweets.
+-   **Shakir:** Define filtering parameters to separate disaster-related tweets.
 
-    -   Process and store the incoming tweet data along with the extracted results from the tweet data.
+-   **Poojitha and Himanshu:** Process and store the incoming tweet data along with the extracted results from the tweet data.
 
--   GUI design and build
+**Week 4:**
 
-    -   Visualize the extracted output in a GUI. This will include showing geographic locations of the affected regions.
+-   **Everyone:** Visualize the extracted output in a GUI. This will include showing geographic locations of the affected regions.
 
-    -   Add a dashboard to this GUI that provides better analysis of the extracted information.
+-   **Everyone:** Add a dashboard to this GUI that provides better analysis of the extracted information.
 
-    -   Create an interface for the analysis dashboard.
+**Week 5:**
 
-    -   It will collect straightforward user inputs, such as precise disaster-related #tags, a specific country, and a defined time range for the events.
+-   **Avikal and Shakir:** Create an interface for the analysis dashboard.
 
-    -   The interface will display tweets that can be scrolled through, and it will highlight regions affected by disasters on the map.
+-   **Visalakshi and Himanshu:** Use maps to indicate affected locations.
 
-    -   Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
+-   **Poojitha:** Generate intelligent analytics on the type of disaster, time elapsed, severity, etc.
 
--   Deploy and Test
+**Week 6:**
 
-    -   Deploy the GUI and test on real-time data.
+-   **Everyone:** Deploy the GUI and the data.
 
-    -   Make changes according to feedback.
+-   **Everyone:** Make changes according to feedback.
 
--   Presentation
-
-    -   Make the final presentation for showcase.
+-   **Everyone:** Make the final presentation for showcase.
 
 ::: callout-note
 ## Note:
