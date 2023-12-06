@@ -291,6 +291,14 @@ These are the planned approaches, and we intend to explore and solve the problem
 
 -   `_freeze`: The folder created to store files generated during project render.
 
+-   `analysis/`: This folder contains the analysis scripts used to generate output for the project outline.
+
+    -   README.md describes the steps to run and generate the results using scripts
+
+    -   Other code files are added to review and understand the source of the output
+
+    -   Relevant datasets used for the scripts are under the `data/` folder in the main directory.
+
 -   `data/`: This folder contains data files or datasets that are used in the project.
 
     -   README.md : A readme file that describes the datasets in more detail.

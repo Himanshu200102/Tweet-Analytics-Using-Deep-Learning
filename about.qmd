@@ -6,12 +6,12 @@ editor: visual
 
 This project was developed by **The AlgoRhythms** For [INFO 523 - Data Mining and Discovery](https://datamineaz.org/) at the University of Arizona, taught by Dr. Greg Chism. The team is comprised of the following team members.
 
--   Visalakshi Iyer
+-   Visalakshi Iyer: First-Year Graduate student pursuing M.S. in Data Science at University of Arizona.
 
--   Avikal Singh
+-   Avikal Singh: First-Year Graduate student pursuing M.S. in Data Science at University of Arizona.
 
--   Shakir Ahmed
+-   Shakir Ahmed: First-Year Graduate student pursuing M.S. in Data Science at University of Arizona.
 
--   Poojitha Pasala
+-   Poojitha Pasala: First-Year Graduate student pursuing M.S. in Data Science at University of Arizona.
 
--   Himanshu Deore
+-   Himanshu Deore: First-Year Graduate student pursuing M.S. in Data Science at University of Arizona.
