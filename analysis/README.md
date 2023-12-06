@@ -22,6 +22,12 @@
     -   Run the section after the heading "Nitter Scraper".
     -   Run/skip cells as per computing requirements.
 
+4.  `models/trainedl_lstm_model.h5`
+
+    -   trained and saved lstm model.
+
+    -   this can be used to load directly to the pipeline and predict the results
+
 ## File Description
 
 1.  `DM_Classification_Pipeline_Training.ipynb`
@@ -43,6 +49,10 @@
 4.  `ntscraper/nitter.py`
 
     Scraping algorithm that initiates a nitter instance with beautiful soup and extracts tweets.
+
+5.  `models/trainedl_lstm_model.h5`
+
+    trained and saved lstm model.
 
 ## Outcome
 
