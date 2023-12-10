@@ -1,7 +1,7 @@
 ---
 title: "Tweet Analytics for Disaster and Calamity Management"
 subtitle: "INFO 523 - Fall 2023 - Project Final"
-author: "The Algo-Rythms Team : Visalakshi Prakash Iyer,Himanshu Nimbarte,Shakir Ahmed,Avikal Singh,Poojitha Pasala""
+author: "The Algo-Rythms Team : Visalakshi Prakash Iyer, Himanshu Nimbarte, Shakir Ahmed, Avikal Singh, Poojitha Pasala"
 title-slide-attributes:
   data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
   data-background-size: stretch
@@ -15,6 +15,10 @@ format:
     logo: images\twitter_logo.png
     footer: "[🕊 The Algo-Rhythms](https://info-523-exercises.github.io/project-final-The-Algo-Rhythms/)"
     scrollable: true
+    style: |
+      body {
+        font-size: 12px; /* Set your desired font size here */
+      }
   
 editor: visual
 execute:
@@ -57,25 +61,25 @@ mtcars$speed <- mtcars$hp / mtcars$wt
 data("penguins")
 ```
 
-## Introduction:
+## Introduction: {.smaller}
 
 -   In times of disasters, individuals frequently turn to social media platforms to communicate information regarding required aid or incidents.
 
 -   Twitter provides an unprecedented opportunity to access a vast amount of information and gain insights directly from those affected by disasters. Harnessing of Twitter's potential to is crucial to enhance disaster response and ensure public safety in critical situations.
 
--   Goal: Conduct classification on tweets during crisis, validate tweets, and deliver accurate information to disaster management teams, thereby contributing to the smooth functioning of rescue operations and boosting the safety and resilience of communities during critical events.
+## Goal and problem statement: {.smaller}
 
-## Problem statement:
+-   **Goal-** Conduct classification on tweets during crisis, validate tweets, and deliver accurate information to disaster management teams, thereby contributing to the smooth functioning of rescue operations and boosting the safety and resilience of communities during critical events.
 
--   In the face of dynamic disasters, a proactive approach to information is essential. Traditional methods can lag, hampering swift responses and resource allocation. Validating Twitter-shared information is critical to prevent panic and confusion among affected communities.
+-   **Problem statement-** In the face of dynamic disasters, a proactive approach to information is essential. Traditional methods can lag, hampering swift responses and resource allocation. Validating Twitter-shared information is critical to prevent panic and confusion among affected communities.
 
-## Data:
+## Data: {.smaller}
 
 -   Real-time tweets fetched from twitter based on type of disaster (hashtag) and location. (For testing)
 
 -   Fake Tweet Classification dataset from kaggle is used for classification of tweets as real or fake. (For training)
 
-## Execution of plan:
+## Execution of plan: {.smaller}
 
 1.  **Created a new streaming pipeline-** Used NTscraper and tweepy package to create a Nitter object which uses Beautiful soup in the back end to fetch tweet details such as "text", "username" and statistics such as "likes","comments" and "retweets".
 2.  **Model building-** Used LSTM model to build a fake news classification model and give us the relevant and important details corresponding to disaster management.
@@ -83,26 +87,14 @@ data("penguins")
 4.  **Model testing-** Use real time data based on hastag- "#forestfire" and location set to near "USA".
 5.  **GUI creation-** Integrate a search bar for input of hastag, after which the model fetches the data and performs classification. The classified real tweets are displayed with tweet link, location (if available) and the user.
 
-## Results
+## Results {.smaller}
 
 \<\<\<INSERT IMAGES LATER\>\>\>
 
-## Live Demo:
+## Live Demo: {.smaller}
 
 Now, we are going to demonstrate our project in action.
 
 \<\<\<INSERT LINK HERE\>\>\>
 
-## Conclusion:
-
-## Images
-
-![Image credit: Danielle Navarro, Percolate.](images/watercolour_sys02_img34_teacup-ocean.png){fig-align="center" width="500"}
-
-# Wrap up
-
-## Feeling adventurous?
-
--   You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
--   But some of you might want to play around with slide styling. Some solutions for this can be found at https://quarto.org/docs/presentations/revealjs.
+## Conclusion: {.smaller}
