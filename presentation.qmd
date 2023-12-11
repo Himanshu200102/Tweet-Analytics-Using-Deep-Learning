@@ -75,7 +75,7 @@ data("penguins")
 
 ## Execution of plan: {.smaller}
 
-1.  **Created a new streaming pipeline-** Used NTscraper and tweepy package to create a Nitter object which uses Beautiful soup in the back end to fetch tweet details such as "text", "username" and statistics such as "likes","comments" and "retweets".
+1.  **Created a new streaming pipeline-** Used NTscraper to create a Nitter object which uses Beautiful soup in the back end to fetch tweet details such as "text", "username" and statistics such as "likes","comments" and "retweets".
 2.  **Model building-** Used LSTM model to build a fake news classification model and give us the relevant and important details corresponding to disaster management.
 3.  **Model training-** Used Kaggle dataset to perform model training and get accuracy scores.
 4.  **Model testing-** Use real time data based on hashtag- "#forestfire" and location set to near "USA".
@@ -149,7 +149,7 @@ This is the wordcloud from the combined tweets of the dataset, for the "disaster
 
 -   First the dataset tweets were broken down through tokenization. These tokens can be individual words or subwords, phrases, or even characters, depending on the specific tokenization technique used. The primary goal of tokenization is to facilitate natural language processing tasks by converting textual data into a format that can be easily handled by algorithms and models.
 
--   Training BERT was computationally expensive, and well as memory intensive. The accuracy score for BERT was 97% on training and 82%
+-   Training BERT was computationally expensive, and well as memory intensive. The accuracy score for BERT was 97% on training and 82% on testing.
 
 ## LSTM
 
@@ -183,6 +183,18 @@ Now, we are going to demonstrate our project in action.
 
 [GUI for Disaster Tweet Analysis](https://disaster-tweet-app-algorhythms.streamlit.app/)
 
+## Challenges Faced
+
+-   We were not able to get access to fetch tweets with twitter developer API, because of the revoked access of free tier developers. This was later improvised using a web scraping object
+
+-   There were a greater need for computational power, as text based models are computationally heavy. We utilized online resources and GPU to train the model and load them.
+
+-   Response time is a greater requirement when it comes to tools like disaster monitoring systems. With heavy models running in the background, memory optimization and caching plays a great role.
+
 ## Conclusion: {.smaller}
 
--   We
+-   It has been a constant effort of the developer community to utilize twitter and generate analysis to manage/monitor disasters. However, there are some challenges when considering social media as an information source for disaster response. In particular, social media streams contain large amounts of irrelevant messages such as rumors, advertisements, or even misinformation.
+
+-   This project is an improvement to previously attempted disaster tweet monitoring systems hosted by Google (Tensorflow and Kaggle competitions). What we achieved on top of the previous attempts, is the improved model scores and higher analytic insights on the location tracking.
+
+-   This particular attempt can serve as a derivation for improve intelligence received during a crisis, and can enable intelligent officers to access calls for help quickly.
