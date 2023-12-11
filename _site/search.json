@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Tweet Analytics for Disaster & Calamity Management",
+    "section": "",
+    "text": "In addressing the dynamic challenges of disasters, our project, Tweet Analytics for Disaster & Calamity Management, strives to generate vital and reliable information as a valuable resource for those in need. Our focus involves discerning the distinction between fake and genuine tweets pertaining to disasters like forest fires, earthquakes, and floods. Employing binary classification and advanced models, we analyze real-time data to deliver life-saving insights through an integrated GUI. This initiative aims to provide actionable and trustworthy information for effective disaster management and response."
+  },
+  {
+    "objectID": "index.html#abstract",
+    "href": "index.html#abstract",
+    "title": "Tweet Analytics for Disaster & Calamity Management",
+    "section": "",
+    "text": "In addressing the dynamic challenges of disasters, our project, Tweet Analytics for Disaster & Calamity Management, strives to generate vital and reliable information as a valuable resource for those in need. Our focus involves discerning the distinction between fake and genuine tweets pertaining to disasters like forest fires, earthquakes, and floods. Employing binary classification and advanced models, we analyze real-time data to deliver life-saving insights through an integrated GUI. This initiative aims to provide actionable and trustworthy information for effective disaster management and response."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Tweet Analytics for Disaster & Calamity Management",
+    "section": "Introduction",
+    "text": "Introduction\nIn the face of the ever-changing landscape of disasters and calamities, effective and timely management requires innovative solutions that harness the power of social media. Our project addresses the inherent challenges in traditional methods of information gathering during crises, focusing on Twitter as a valuable source of real-time data. With a proactive approach, we delve into the classification of tweets using techniques like tokenisation to find keywords for disaster and non-disaster-related content and advanced models like BERT and LSTM. By extracting data from topics such as forest fires and earthquakes using Tweepy, we aim to contribute to a robust disaster management strategy. The upcoming integration of a user-friendly GUI interface will facilitate the dissemination of our predictions and outputs, ensuring a comprehensive and accessible tool for emergency responders and disaster management professionals."
+  },
+  {
+    "objectID": "index.html#work-flow",
+    "href": "index.html#work-flow",
+    "title": "Tweet Analytics for Disaster & Calamity Management",
+    "section": "Work Flow",
+    "text": "Work Flow\n\nFake Tweet Classification\nWe performed classification of tweets into disaster-related and non-disaster-related categories using keyword count, character count, and word count distribution. This analysis served to enhance our understanding of the content and context of tweets during calamities.\n\n\nBERT Model Implementation\nDespite encountering resource constraints, we embarked on implementing a BERT (Bidirectional Encoder Representations from Transformers) model, achieving an accuracy of approximately 82% after three epochs. The BERT model is renowned for its contextual understanding and representation capabilities.\n\n\nLSTM Model Exploration\nIn response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 78%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.\n\n\nData Extraction from Tweepy\nWe leveraged the Tweepy API to extract data pertaining to specific disaster topics, such as forest fires, floods, earthquakes, and hurricanes. This enabled us to gather real-time information and enhance the comprehensiveness of our analysis.\n\n\nGUI Interface Presentation\nAs part of our future work, we intend to present our predictions and outputs through an intuitive GUI (Graphical User Interface) interface. This interface will facilitate user-friendly access to our analytical insights, promoting effective decision-making in disaster and calamity management."
+  },
+  {
+    "objectID": "index.html#conclusion",
+    "href": "index.html#conclusion",
+    "title": "Tweet Analytics for Disaster & Calamity Management",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn summary, our project endeavors to provide a robust and comprehensive solution to the challenges posed by dynamic disasters and calamities. Through a combination of advanced models, insightful visualizations, and real-time data extraction, we aim to contribute to proactive and informed disaster management strategies."
+  }
+]

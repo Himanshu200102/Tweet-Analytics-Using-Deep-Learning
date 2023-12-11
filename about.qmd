@@ -8,7 +8,7 @@ This project was developed by **The AlgoRhythms** For [INFO 523 - Data Mining an
 
 -   Visalakshi Iyer: First-Year Graduate student pursuing M.S. in Data Science at University of Arizona.
 
--   Avikal Singh: First-Year Graduate student pursuing M.S. in Information System at University of Arizona.
+-   Avikal Singh: First-Year Graduate student pursuing M.S. in Information Science at University of Arizona.
 
 -   Shakir Ahmed: First-Year Graduate student pursuing M.S. in Data Science at University of Arizona.
 
