@@ -122,9 +122,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#work-flow" id="toc-work-flow" class="nav-link" data-scroll-target="#work-flow">Work Flow</a>
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a>
   <ul class="collapse">
   <li><a href="#fake-tweet-classification" id="toc-fake-tweet-classification" class="nav-link" data-scroll-target="#fake-tweet-classification">Fake Tweet Classification</a></li>
+  <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a></li>
   <li><a href="#bert-model-implementation" id="toc-bert-model-implementation" class="nav-link" data-scroll-target="#bert-model-implementation">BERT Model Implementation</a></li>
   <li><a href="#lstm-model-exploration" id="toc-lstm-model-exploration" class="nav-link" data-scroll-target="#lstm-model-exploration">LSTM Model Exploration</a></li>
   <li><a href="#data-extraction-from-tweepy" id="toc-data-extraction-from-tweepy" class="nav-link" data-scroll-target="#data-extraction-from-tweepy">Data Extraction from Tweepy</a></li>
@@ -169,15 +170,19 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>In the face of the ever-changing landscape of disasters and calamities, effective and timely management requires innovative solutions that harness the power of social media. Our project addresses the inherent challenges in traditional methods of information gathering during crises, focusing on Twitter as a valuable source of real-time data. With a proactive approach, we delve into the classification of tweets using techniques like tokenisation to find keywords for disaster and non-disaster-related content and advanced models like BERT and LSTM. By extracting data from topics such as forest fires and earthquakes using Tweepy, we aim to contribute to a robust disaster management strategy. The upcoming integration of a user-friendly GUI interface will facilitate the dissemination of our predictions and outputs, ensuring a comprehensive and accessible tool for emergency responders and disaster management professionals.</p>
 </section>
-<section id="work-flow" class="level2">
-<h2 class="anchored" data-anchor-id="work-flow">Work Flow</h2>
+<section id="approach" class="level2">
+<h2 class="anchored" data-anchor-id="approach">Approach</h2>
 <section id="fake-tweet-classification" class="level3">
 <h3 class="anchored" data-anchor-id="fake-tweet-classification">Fake Tweet Classification</h3>
-<p>We performed classification of tweets into disaster-related and non-disaster-related categories using keyword count, character count, and word count distribution. This analysis served to enhance our understanding of the content and context of tweets during calamities.</p>
+<p>We performed classification of tweets into disaster-related and non-disaster-related categories using keyword count, character count, and word count distribution. This analysis served to enhance our understanding of the content and context of tweets during calamities. To gain deeper insights, we generated word clouds for both disaster and non-disaster tweets, providing a visual representation of the most frequent words in each category.</p>
+</section>
+<section id="tokenization" class="level3">
+<h3 class="anchored" data-anchor-id="tokenization">Tokenization</h3>
+<p>We tokenized the text data with the help of <code>Tokenizer()</code> from <code>Keras</code> library in python with vocabulary size of 1000. After tokenization, we had a list of sequences where each sequence represents the texts converted into a sequence of integers .</p>
 </section>
 <section id="bert-model-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="bert-model-implementation">BERT Model Implementation</h3>
-<p>Despite encountering resource constraints, we embarked on implementing a BERT (Bidirectional Encoder Representations from Transformers) model, achieving an accuracy of approximately 82% after three epochs. The BERT model is renowned for its contextual understanding and representation capabilities.</p>
+<p>We tried to implement a BERT-based binary classification model, achieving an accuracy of approximately 82% after three epochs. The BERT model is renowned for its contextual understanding and representation capabilities. Due to lack of computational resources we had to abort the model and moved ahead with a different approach.</p>
 </section>
 <section id="lstm-model-exploration" class="level3">
 <h3 class="anchored" data-anchor-id="lstm-model-exploration">LSTM Model Exploration</h3>

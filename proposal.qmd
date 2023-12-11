@@ -11,7 +11,8 @@ if(!require(pacman))
   install.packages("pacman")
 
 pacman::p_load(here, tidyverse, dplyr,
-               formattable)
+               formattable
+               )
 ```
 
 ## High Level Goal
@@ -25,20 +26,22 @@ The major motivation behind the proposed project is to save lives and improve pu
 
 ## Dataset
 
-[The **CREDBANK** dataset](https://github.com/compsocial/CREDBANK-data) is a large-scale social media corpus. It consists of streaming tweets tracked over this period, topics in this tweet stream, topics classified as events or non-events, and events annotated with credibility ratings. The data is spread across four files, including a file containing more than 169 million streaming tweets and a file containing more than 62,000 topics. Each topic is represented by three terms, corresponding to the top three terms returned by running topic modeling (LDA) over the streaming tweets.
+This dataset has been taken from **Natural Language Processing with Disaster Tweets** competition. Twitter has become an important communication channel in times of emergency.\
+The ubiquitousness of smartphones enables people to announce an emergency they\'re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
 
-There are two main files associated with credibility annotations:
+There are two main files associated with this dataset:
 
--   [cred_event_TurkRatings.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_TurkRatings.data) - credibility ratings and reasoning entered by turkers\*\* for each topic. Each row has following tab separated fields:
+-   train.csv - credibility ratings and reasoning entered by turkers\*\* for each topic. Each row has following tab separated fields:
 
     **Data Glimpse**
 
     ```{r table-one, echo=FALSE, message = FALSE, warning=FALSE}
 
-    tibble(topic_key = "louis_ebola_nurse-20141024_170629-20141024_181626",
-           topic_terms = c("'louis', 'ebola', 'nurse'"),
-           Ratings_list = c("'1', '-1', '2', '-2', '0', '2', '0', '....'"),
-           Reasons_list = c("'Nurses union describes the procedures taken by nurse who now has Ebola from treating a patient.', '.....'")
+    tibble(id = "66",
+           keyword = "ablaze",
+           location = "GREENSBORO,NORTH CAROLINA",
+           text = "How the West was burned: Thousands of wildfire...",
+           target = 1
           ) |>
       formattable()
 
@@ -48,59 +51,37 @@ There are two main files associated with credibility annotations:
 
     **Data Description**
 
-    +--------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Column Name  | Data Type       | Description                                                                                                                                                                                                    |
-    +==============+=================+================================================================================================================================================================================================================+
-    | topic_key    | String          | This is a combination of the time_key and topic_terms from the Topic File. The entries in the Topic File which were marked as event (isEvent = 1) have credibility ratings in the credibility annotation file. |
-    +--------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | topic_terms  | List            | A list of 3 terms corresponding to the top 3 terms in each topic.                                                                                                                                              |
-    +--------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Ratings_list | List            | A list of 30 credibility ratings entered by Turkers\*\*. The ratings are based on a 5-point Likert scale ranging from \[-2 to +2\]:                                                                            |
-    |              |                 |                                                                                                                                                                                                                |
-    |              |                 | -   \[-2\] Certainly Inaccurate                                                                                                                                                                                |
-    |              |                 |                                                                                                                                                                                                                |
-    |              |                 | -   \[-1\] Probably Inaccurate                                                                                                                                                                                 |
-    |              |                 |                                                                                                                                                                                                                |
-    |              |                 | -   \[0\] Uncertain (Doubtful)                                                                                                                                                                                 |
-    |              |                 |                                                                                                                                                                                                                |
-    |              |                 | -   \[+1\] Probably Accurate                                                                                                                                                                                   |
-    |              |                 |                                                                                                                                                                                                                |
-    |              |                 | -   \[+2\] Certainly Accurate                                                                                                                                                                                  |
-    +--------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Reasons_List | List of Strings | A list of 30 reasons corresponding to the ratings entered by the Turkers\*\*.                                                                                                                                  |
-    +--------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
+    | Column Name | Data Type       | Description                                                                                     |
+    +=============+=================+=================================================================================================+
+    | id          | Integer         | A unique identifier for each tweet                                                              |
+    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
+    | text        | List of strings | It contains the text of the tweet                                                               |
+    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
+    | location    | List of strings | The location the tweet was sent from (may be blank)                                             |
+    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
+    | keyword     | List of Strings | A particular keyword from the tweet (may be blank)                                              |
+    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
+    | target      | Integer         | in **train.csv** only, this denotes whether a tweet is about a real disaster (`1`) or not (`0`) |
+    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
 
     This data set will be used to train the model on the credibility of the tweet
 
-    *\*\* Turkers are remote "crowdworkers" hired to perform discrete tasks on-demand (as the rating the credibility by parsing each"*
-
--   [cred_event_SearhTweets.data](https://s3-us-west-2.amazonaws.com/credbank/cred_event_SearchTweets.data) - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
-
-    **Data Glimpse**
-
-    ```{r table-two, echo=FALSE, message = FALSE, warning=FALSE}
-
-    tibble(topic_key = "louis_ebola_nurse-20141024_170629-20141024_181626",
-           topic_terms = c("'louis', 'ebola', 'nurse'"),
-           tweet_count = 13243,
-           ListOf_tweetid_author_createdAt_tuple = "[('ID=522760301435830272', 'AUTHOR=iMhartyz', 'CreatedAt=2014-10-16 14:45:42'), ......]"
-          ) |>
-      formattable()
-    ```
+-   test.csv - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
 
     **Data Description**
 
-    +---------------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Column Name                           | Data Type             | Description                                                                                                                                                                                                    |
-    +=======================================+=======================+================================================================================================================================================================================================================+
-    | topic_key                             | String                | This is a combination of the time_key and topic_terms from the Topic File. The entries in the Topic File which were marked as event (isEvent = 1) have credibility ratings in the credibility annotation file. |
-    +---------------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | topic_terms                           | List                  | A list of 3 terms corresponding to the top 3 terms in each topic.                                                                                                                                              |
-    +---------------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | tweet_count                           | Long Int              | Total number of tweets returned by the search API for the topic_terms.                                                                                                                                         |
-    +---------------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | ListOf_tweetid_author_createdAt_tuple | List of Tuple Objects | A list of tuples, where each tuple contains three fields: tweet ID , tweet author , tweet creation date                                                                                                        |
-    +---------------------------------------+-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    +-------------+-----------------+-----------------------------------------------------+
+    | Column Name | Data Type       | Description                                         |
+    +=============+=================+=====================================================+
+    | id          | Integer         | A unique identifier for each tweet                  |
+    +-------------+-----------------+-----------------------------------------------------+
+    | text        | List of strings | It contains the text of the tweet                   |
+    +-------------+-----------------+-----------------------------------------------------+
+    | location    | List of strings | The location the tweet was sent from (may be blank) |
+    +-------------+-----------------+-----------------------------------------------------+
+    | keyword     | List of strings | A particular keyword from the tweet (may be blank)  |
+    +-------------+-----------------+-----------------------------------------------------+
 
     This dataset will be used as an index to fetch and test specific types of disaster tweets (like earthquake).
 
