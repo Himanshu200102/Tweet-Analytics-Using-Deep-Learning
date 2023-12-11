@@ -183,7 +183,7 @@ Now, we are going to demonstrate our project in action.
 
 [GUI for Disaster Tweet Analysis](https://disaster-tweet-app-algorhythms.streamlit.app/)
 
-## Challenges Faced
+## Challenges Faced {.smaller}
 
 -   We were not able to get access to fetch tweets with twitter developer API, because of the revoked access of free tier developers. This was later improvised using a web scraping object
 
