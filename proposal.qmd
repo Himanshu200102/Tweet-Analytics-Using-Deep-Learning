@@ -1,5 +1,5 @@
 ---
-title: "Tweet Analytics for Disaster & Calamity Management"
+title: "🕊️ Tweet Analytics for Disaster & Calamity Management"
 subtitle: "Proposal"
 format: html
 editor: visual
