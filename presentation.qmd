@@ -89,11 +89,11 @@ data("penguins")
 
 ## Plot1:
 
-![](images/Pie chart.png)
+![](images/Pie%20chart.png)
 
 ## Plot2:
 
-![](images/Target distribution.jpg)
+![](images/Target%20distribution.jpg)
 
 ## Plot3:
 
@@ -101,11 +101,11 @@ data("penguins")
 
 ## Plot4:
 
-![](images/Unique word count distribution.jpg)
+![](images/Unique%20word%20count%20distribution.jpg)
 
 ## Plot5:
 
-![](images/Average word length distribution.jpg)
+![](images/Average%20word%20length%20distribution.jpg)
 
 ## Plot6:
 
@@ -140,3 +140,5 @@ Now, we are going to demonstrate our project in action.
 [GUI for Disaster Tweet Analysis](https://disaster-tweet-app-algorhythms.streamlit.app/)
 
 ## Conclusion: {.smaller}
+
+-   We
