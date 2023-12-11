@@ -3,7 +3,7 @@ title: "Tweet Analytics for Disaster and Calamity Management"
 subtitle: "INFO 523 - Fall 2023 - Project Final"
 author: "The Algo-Rythms Team : Visalakshi Prakash Iyer, Himanshu Nimbarte, Shakir Ahmed, Avikal Singh, Poojitha Pasala"
 title-slide-attributes:
-  data-background-image: images/watercolour_sys02_img34_teacup-ocean.jpg
+  data-background-image: images/slide_background.jpg
   data-background-size: stretch
   data-background-opacity: "0.7"
   data-slide-number: none
@@ -142,6 +142,22 @@ This is the wordcloud from the combined tweets of the dataset, for the "disaster
 ![](images/Disaster_word_cloud.png){fig-align="center"}
 :::
 :::
+
+# Training Outcomes
+
+## BERT {.smaller}
+
+-   First the dataset tweets were broken down through tokenization. These tokens can be individual words or subwords, phrases, or even characters, depending on the specific tokenization technique used. The primary goal of tokenization is to facilitate natural language processing tasks by converting textual data into a format that can be easily handled by algorithms and models.
+
+-   Training BERT was computationally expensive, and well as memory intensive. The accuracy score for BERT was 97% on training and 82%
+
+## LSTM
+
+-   LSTM on the other hand was not memory intensive, although it was fairly heavy to train, it was able to achieve a great learning curve. It achieved a training accuracy of 83% and testing accuracy of 80%.
+
+-   When both the models were tested on the real-time set, LSTM provided better results compared to BERT. Owing to the fact that some fake tweets which contain the main keywords, can be misclassified due to the attention mechanism.
+
+# Outcome
 
 ## Results: {.smaller}
 

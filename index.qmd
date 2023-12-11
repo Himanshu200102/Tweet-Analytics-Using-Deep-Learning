@@ -56,7 +56,7 @@ Key features of LSTM:
 
 4.  **Training:** LSTMs are trained using backpropagation through time (BPTT) and can be optimized using various gradient descent algorithms like Adam, RMSprop, etc.
 
-In response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 78%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.
+In response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 82%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.
 
 ### Data Extraction from ntscraper
 
