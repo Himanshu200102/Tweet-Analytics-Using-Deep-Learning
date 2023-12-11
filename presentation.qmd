@@ -65,7 +65,7 @@ data("penguins")
 
 -   In times of disasters, individuals frequently turn to social media platforms to communicate information regarding required aid or incidents.
 
--   Twitter provides an unprecedented opportunity to access a vast amount of information and gain insights directly from those affected by disasters. Harnessing of Twitter's potential to is crucial to enhance disaster response and ensure public safety in critical situations.
+-   Twitter provides an unprecedented opportunity to access a vast amount of information and gain insights directly from those affected by disasters. Harnessing of Twitter's potential is crucial to enhance disaster response and ensure public safety in critical situations.
 
 ## Goal and problem statement: {.smaller}
 
@@ -95,6 +95,6 @@ data("penguins")
 
 Now, we are going to demonstrate our project in action.
 
-\<\<\<INSERT LINK HERE\>\>\>
+[GUI for Disaster Tweet Analysis](https://disaster-tweet-app-algorhythms.streamlit.app/)
 
 ## Conclusion: {.smaller}
