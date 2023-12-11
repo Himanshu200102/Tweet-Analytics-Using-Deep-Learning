@@ -95,7 +95,7 @@ data("penguins")
 
 Our analysis plan involved exploring the dataset for suitability of the training. The insights will be shown in the next slides
 
-## Plot1:
+## Pie Chart:
 
 ::: columns
 ::: {.column width="50%"}
@@ -107,7 +107,7 @@ This is the target variable distribution of training dataset. With a fairly even
 :::
 :::
 
-## Plot2:
+## Bar Plot:
 
 ::: columns
 ::: {.column width="50%"}
@@ -119,7 +119,7 @@ The main unique keywords that fall under the tweets tagged as "disaster tweets" 
 :::
 :::
 
-## Plot3:
+## Density Plot:
 
 ::: columns
 ::: {.column width="50%"}
@@ -131,7 +131,7 @@ With a normally equivalent distribution in both the categories, we had the notio
 :::
 :::
 
-## Plot4:
+## Word Cloud:
 
 ::: columns
 ::: {.column width="50%"}
@@ -151,7 +151,7 @@ This is the wordcloud from the combined tweets of the dataset, for the "disaster
 
 -   Training BERT was computationally expensive, and well as memory intensive. The accuracy score for BERT was 97% on training and 82% on testing.
 
-## LSTM
+## LSTM {.smaller}
 
 -   LSTM on the other hand was not memory intensive, although it was fairly heavy to train, it was able to achieve a great learning curve. It achieved a training accuracy of 83% and testing accuracy of 80%.
 
