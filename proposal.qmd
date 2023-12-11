@@ -1,5 +1,5 @@
 ---
-title: "Tweet Analytics for Disaster & Calamity Management"
+title: "🕊️ Tweet Analytics for Disaster & Calamity Management"
 subtitle: "Proposal"
 format: html
 editor: visual
@@ -27,7 +27,7 @@ The major motivation behind the proposed project is to save lives and improve pu
 ## Dataset
 
 This dataset has been taken from **Natural Language Processing with Disaster Tweets** competition. Twitter has become an important communication channel in times of emergency.\
-The ubiquitousness of smartphones enables people to announce an emergency they\'re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+The ubiquitousness of smartphones enables people to announce an emergency they're observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
 
 There are two main files associated with this dataset:
 
@@ -51,19 +51,13 @@ There are two main files associated with this dataset:
 
     **Data Description**
 
-    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
     | Column Name | Data Type       | Description                                                                                     |
-    +=============+=================+=================================================================================================+
+    |-------------|-----------------|-------------------------------------------------------------------------------------------------|
     | id          | Integer         | A unique identifier for each tweet                                                              |
-    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
     | text        | List of strings | It contains the text of the tweet                                                               |
-    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
     | location    | List of strings | The location the tweet was sent from (may be blank)                                             |
-    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
     | keyword     | List of Strings | A particular keyword from the tweet (may be blank)                                              |
-    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
     | target      | Integer         | in **train.csv** only, this denotes whether a tweet is about a real disaster (`1`) or not (`0`) |
-    +-------------+-----------------+-------------------------------------------------------------------------------------------------+
 
     This data set will be used to train the model on the credibility of the tweet
 
@@ -71,17 +65,12 @@ There are two main files associated with this dataset:
 
     **Data Description**
 
-    +-------------+-----------------+-----------------------------------------------------+
     | Column Name | Data Type       | Description                                         |
-    +=============+=================+=====================================================+
+    |-------------|-----------------|-----------------------------------------------------|
     | id          | Integer         | A unique identifier for each tweet                  |
-    +-------------+-----------------+-----------------------------------------------------+
     | text        | List of strings | It contains the text of the tweet                   |
-    +-------------+-----------------+-----------------------------------------------------+
     | location    | List of strings | The location the tweet was sent from (may be blank) |
-    +-------------+-----------------+-----------------------------------------------------+
     | keyword     | List of strings | A particular keyword from the tweet (may be blank)  |
-    +-------------+-----------------+-----------------------------------------------------+
 
     This dataset will be used as an index to fetch and test specific types of disaster tweets (like earthquake).
 
@@ -248,19 +237,13 @@ These are the planned approaches, and we intend to explore and solve the problem
 
 ## Plan of Attack
 
-+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | Week            | Weekly Task                                                                                                                                       |
-+=================+===================================================================================================================================================+
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | Week 1          | Proposal.                                                                                                                                         |
-+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | Week 2          | Data Exploration and Preprocessing.                                                                                                               |
-+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | Week 3 - Week 4 | Working on setting up the API and Extracting Feature using methods like Tokenization, lemmatization etc. and train Models and perform prediction. |
-+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | Week 5          | Visualize the output by working on developing a GUI.                                                                                              |
-+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 | Week 6          | Finalizing the project and complete preparing a presentation.                                                                                     |
-+-----------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 *\*\* We have added respective members for individual tasks in the Analysis Plan. We have removed Members Responsible Column from the table.*
 
