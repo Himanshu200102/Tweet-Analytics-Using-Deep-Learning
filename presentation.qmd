@@ -63,11 +63,7 @@ data("penguins")
 
 ## Introduction: {.smaller}
 
-<<<<<<< HEAD
-## Quarto {.smaller}
-=======
 -   In times of disasters, individuals frequently turn to social media platforms to communicate information regarding required aid or incidents.
->>>>>>> d7cc701b427e784c477c31bc2036265daf08d4fb
 
 -   Twitter provides an unprecedented opportunity to access a vast amount of information and gain insights directly from those affected by disasters. Harnessing of Twitter's potential is crucial to enhance disaster response and ensure public safety in critical situations.
 
