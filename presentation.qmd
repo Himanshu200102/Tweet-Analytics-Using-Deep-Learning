@@ -87,9 +87,51 @@ data("penguins")
 4.  **Model testing-** Use real time data based on hastag- "#forestfire" and location set to near "USA".
 5.  **GUI creation-** Integrate a search bar for input of hastag, after which the model fetches the data and performs classification. The classified real tweets are displayed with tweet link, location (if available) and the user.
 
-## Results {.smaller}
+## Plot1:
 
-\<\<\<INSERT IMAGES LATER\>\>\>
+![](images/Pie chart.png)
+
+## Plot2:
+
+![](images/Target distribution.jpg)
+
+## Plot3:
+
+![](images/words-count_disaster_nondisaster.jpg)
+
+## Plot4:
+
+![](images/Unique word count distribution.jpg)
+
+## Plot5:
+
+![](images/Average word length distribution.jpg)
+
+## Plot6:
+
+![](images/Disaster_word_cloud.png)
+
+## Plot7:
+
+![](images/Non_Disaster_word_cloud.png)
+
+## Results: {.smaller}
+
+hash_earthquake:
+
+![](images/hashtag_earthquake.png)
+
+## Results:
+
+hash_flood:
+
+![](images/hashtag_flood.JPG)
+
+## Results:
+
+hash_hurricane:
+
+![](images/hashtag_hurricane.JPG)
 
 ## Live Demo: {.smaller}
 
