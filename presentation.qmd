@@ -69,51 +69,79 @@ data("penguins")
 
 ## Goal and problem statement: {.smaller}
 
--   **Goal-** Conduct classification on tweets during crisis, validate tweets, and deliver accurate information to disaster management teams, thereby contributing to the smooth functioning of rescue operations and boosting the safety and resilience of communities during critical events.
+-   **Goal-** In the face of dynamic disasters, a proactive approach to information is essential. Traditional methods can lag, hampering swift responses and resource allocation. Validating Twitter-shared information is critical to prevent panic and confusion among affected communities.
 
--   **Problem statement-** In the face of dynamic disasters, a proactive approach to information is essential. Traditional methods can lag, hampering swift responses and resource allocation. Validating Twitter-shared information is critical to prevent panic and confusion among affected communities.
-
-## Data: {.smaller}
-
--   Real-time tweets fetched from twitter based on type of disaster (hashtag) and location. (For testing)
-
--   Fake Tweet Classification dataset from kaggle is used for classification of tweets as real or fake. (For training)
+-   **Problem statement-** Conduct classification on tweets during crisis, validate tweets, and deliver accurate information to disaster management teams, thereby contributing to the smooth functioning of rescue operations and boosting the safety and resilience of communities during critical events.
 
 ## Execution of plan: {.smaller}
 
 1.  **Created a new streaming pipeline-** Used NTscraper and tweepy package to create a Nitter object which uses Beautiful soup in the back end to fetch tweet details such as "text", "username" and statistics such as "likes","comments" and "retweets".
 2.  **Model building-** Used LSTM model to build a fake news classification model and give us the relevant and important details corresponding to disaster management.
 3.  **Model training-** Used Kaggle dataset to perform model training and get accuracy scores.
-4.  **Model testing-** Use real time data based on hastag- "#forestfire" and location set to near "USA".
-5.  **GUI creation-** Integrate a search bar for input of hastag, after which the model fetches the data and performs classification. The classified real tweets are displayed with tweet link, location (if available) and the user.
+4.  **Model testing-** Use real time data based on hashtag- "#forestfire" and location set to near "USA".
+5.  **GUI creation-** Integrate a search bar for input of hashtag, after which the model fetches the data and performs classification. The classified real tweets are displayed with tweet link, location (if available) and the user.
+
+## Data: {.smaller}
+
+-   Twitter API enables developers to fetch tweets in real-time using keywords. Since the previous month, twitter had revoked the access to pull tweets in free tier.
+
+-   To get the Real-time tweets, we resorted to creating and utilizing a Nitter instance from a web-scraping based package. The tweets are fetched based on type of disaster (hashtag) and location.
+
+-   These tweets will be then analysed in real-time, annotated with insights generated from our modeling process
+
+-   The modeling required Fake Tweet Classification dataset from kaggle is used for classification of tweets as real or fake.
+
+-   The model trained on this dataset was utilized for classifying and segregating the tweets to filter out spotlight tweets.
+
+Our analysis plan involved exploring the dataset for suitability of the training. The insights will be shown in the next slides
 
 ## Plot1:
 
-![](images/Pie%20chart.png)
+::: columns
+::: {.column width="50%"}
+This is the target variable distribution of training dataset. With a fairly even distribution, our model had a high chance of reliable training outcomes.
+:::
+
+::: {.column width="50%"}
+![](images/Pie%20chart.png){fig-align="center"}
+:::
+:::
 
 ## Plot2:
 
-![](images/Target%20distribution.jpg)
+::: columns
+::: {.column width="50%"}
+The main unique keywords that fall under the tweets tagged as "disaster tweets" has the following distribution. It is evident that tweets that talk about the disaster have really focuses terms according to the disaster.
+:::
+
+::: {.column width="50%"}
+![](images/Target%20distribution.jpg){fig-align="center"}
+:::
+:::
 
 ## Plot3:
 
-![](images/words-count_disaster_nondisaster.jpg)
+::: columns
+::: {.column width="50%"}
+With a normally equivalent distribution in both the categories, we had the notion that the model will receive sufficient learning tokens
+:::
+
+::: {.column width="50%"}
+![](images/Unique%20word%20count%20distribution.jpg){fig-align="center"}
+:::
+:::
 
 ## Plot4:
 
-![](images/Unique%20word%20count%20distribution.jpg)
+::: columns
+::: {.column width="50%"}
+This is the wordcloud from the combined tweets of the dataset, for the "disaster" class.
+:::
 
-## Plot5:
-
-![](images/Average%20word%20length%20distribution.jpg)
-
-## Plot6:
-
-![](images/Disaster_word_cloud.png)
-
-## Plot7:
-
-![](images/Non_Disaster_word_cloud.png)
+::: {.column width="50%"}
+![](images/Disaster_word_cloud.png){fig-align="center"}
+:::
+:::
 
 ## Results: {.smaller}
 
