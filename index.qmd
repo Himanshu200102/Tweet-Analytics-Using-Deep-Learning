@@ -20,13 +20,13 @@ Amidst the ever-evolving landscape of disasters, effective and prompt management
 
 Our approach involved a comprehensive classification of tweets, distinguishing between disaster-related and non-disaster-related content based on diverse metrics like keyword count, character count, and word count distributions. This meticulous analysis was instrumental in unraveling the nuances inherent in tweets during times of calamity, allowing for a more profound comprehension of their content and contextual relevance. To delve further into these insights, we constructed illuminating word clouds for both disaster and non-disaster tweets. These visual representations encapsulated the most prevalent words in each category, offering a vivid portrayal of the prevalent themes and discourse within the realm of calamitous events.
 
-#### Tokenization
+### Tokenization
 
 Tokenization is the process of breaking down text into smaller units, known as tokens. These tokens can be individual words or subwords, phrases, or even characters, depending on the specific tokenization technique used. The primary goal of tokenization is to facilitate natural language processing tasks by converting textual data into a format that can be easily handled by algorithms and models.
 
 Utilizing the Tokenizer() function from the Keras library in Python, we meticulously tokenized our textual data with a specific vocabulary size set at 1000. The outcome of this process yielded a list of sequences, where each sequence encapsulated the transformation of textual content into a sequence of integers. This transformation paved the way for a structured and numerical representation of the textual information, laying the groundwork for subsequent analysis and modeling endeavors.
 
-#### BERT Model Implementation
+### BERT Model Implementation
 
 BERT, which stands for Bidirectional Encoder Representations from Transformers, is a pre-trained language representation model developed by Google. It's designed to understand the context of words in a sentence by capturing bidirectional relationships in the text.
 
@@ -42,7 +42,7 @@ Key features of BERT:
 
 We tried to implement a BERT-based binary classification model, achieving an accuracy of approximately 82% after three epochs. The BERT model is renowned for its contextual understanding and representation capabilities. Due to lack of computational resources we had to abort the model and moved ahead with a different approach.
 
-#### LSTM Model Exploration
+### LSTM Model Exploration
 
 Long Short-Term Memory (LSTM) is a type of recurrent neural network (RNN) architecture designed to handle the issue of vanishing or exploding gradients in traditional RNNs. LSTMs are capable of capturing long-term dependencies in sequential data by using a memory cell that can maintain information over long sequences.
 
@@ -58,7 +58,7 @@ Key features of LSTM:
 
 In response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 78%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.
 
-#### Data Extraction from ntscraper
+### Data Extraction from ntscraper
 
 The Ntscraper library is a user-friendly tool tailored for effortless data retrieval from Nitter instances. It empowers users to extract tweets efficiently through a range of functionalities:
 
@@ -74,7 +74,7 @@ Utilizing the robust capabilities of the ntscraper API, our initiative focused o
 
 This strategic utilization empowered our project to stay dynamically aligned with ongoing events and swiftly gather comprehensive insights crucial for in-depth examination and effective disaster management strategies.
 
-#### GUI Interface Presentation (Streamlit)
+### GUI Interface Presentation (Streamlit)
 
 Streamlit is an open-source Python library that simplifies the process of creating web applications for data science and machine learning projects. It allows developers and data scientists to build interactive and customizable web-based applications using simple Python scripts.
 
