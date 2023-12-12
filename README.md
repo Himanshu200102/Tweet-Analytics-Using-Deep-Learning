@@ -9,7 +9,7 @@ The major motivation behind the proposed project is to save lives and improve pu
 
 ## Deployment
 
-🔗 The GUI made with the script in the disastertweetapp/ folder has been deployed on this link: (https://disaster-tweet-app-algorhythms.streamlit.app/)
+🔗 The GUI made with the script in the `disastertweetapp/` folder has been deployed on this link: (https://disaster-tweet-app-algorhythms.streamlit.app/)
 
 ## Repo Organization
 
