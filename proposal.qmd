@@ -51,7 +51,7 @@ There are two main files associated with this dataset:
     **Data Description**
 
     | Column Name | Data Type       | Description                                                                                     |
-    |------------|------------|-----------------------------------------------|
+    |---------------|---------------|-------------------------------------------|
     | id          | Integer         | A unique identifier for each tweet                                                              |
     | text        | List of strings | It contains the text of the tweet                                                               |
     | location    | List of strings | The location the tweet was sent from (may be blank)                                             |
@@ -93,7 +93,7 @@ For streaming API, we will be using [NTscraper](https://pypi.org/project/ntscrap
         ```
 
         | Key Name   | Data Type    | Description                                                                                   |
-        |----------------------------|--------------|------------------------------|
+        |---------------------------|-----------------|-----------------------------|
         | created_at | String       | UTC time when this Tweet was created.                                                         |
         | id_str     | String       | The string representation of the unique identifier for this Tweet.                            |
         | text       | String       | The actual UTF-8 text of the status update.                                                   |
@@ -191,7 +191,7 @@ These are the planned approaches, and we intend to explore and solve the problem
 ## Plan of Attack
 
 | Week            | Weekly Task                                                                                                                                       |
-|--------------|----------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | Week 1          | Proposal.                                                                                                                                         |
 | Week 2          | Data Exploration and Preprocessing.                                                                                                               |
 | Week 3 - Week 4 | Working on setting up the API and Extracting Feature using methods like Tokenization, lemmatization etc. and train Models and perform prediction. |

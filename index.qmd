@@ -16,6 +16,22 @@ Amidst the ever-evolving landscape of disasters, effective and prompt management
 
 ## Approach
 
+### Exploration of the Data
+
+Our analysis plan involved exploring the dataset for suitability of the training. The insights are shown here
+
+This is the target variable distribution of training dataset. With a fairly even distribution, our model had a high chance of reliable training outcomes.
+
+![](images/Pie chart.png){fig-align="center" width="50%"}
+
+This is the target variable distribution of training dataset. With a fairly even distribution, our model had a high chance of reliable training outcomes.
+
+![](images/Target distribution.jpg){fig-align="center" width="50%"}
+
+This is the wordcloud from the combined tweets of the dataset, for the "disaster" class.
+
+![](images/Disaster_word_cloud.png){fig-align="center" width="50%"}
+
 ### Fake Tweet Classification
 
 Our approach involved a comprehensive classification of tweets, distinguishing between disaster-related and non-disaster-related content based on diverse metrics like keyword count, character count, and word count distributions. This meticulous analysis was instrumental in unraveling the nuances inherent in tweets during times of calamity, allowing for a more profound comprehension of their content and contextual relevance. To delve further into these insights, we constructed illuminating word clouds for both disaster and non-disaster tweets. These visual representations encapsulated the most prevalent words in each category, offering a vivid portrayal of the prevalent themes and discourse within the realm of calamitous events.
@@ -56,7 +72,7 @@ Key features of LSTM:
 
 4.  **Training:** LSTMs are trained using backpropagation through time (BPTT) and can be optimized using various gradient descent algorithms like Adam, RMSprop, etc.
 
-In response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 82%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.
+In response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 80%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.
 
 ### Data Extraction from ntscraper
 
@@ -71,6 +87,10 @@ The Ntscraper library is a user-friendly tool tailored for effortless data retri
 Furthermore, in the absence of a specified instance, the scraper automatically selects a random public instance, ensuring a seamless scraping experience regardless of the instance availability.
 
 Utilizing the robust capabilities of the ntscraper API, our initiative focused on extracting critical data related to distinct disaster topics, encompassing forest fires, floods, earthquakes, and hurricanes. By harnessing this API, we accessed real-time and contextually relevant information, significantly enriching the depth and breadth of our analysis.
+
+### Geo-location Extraction
+
+We used `spacy` and the geo-tagging entities of spacy nl model `en_core_web_sm` to identify the location of the tweets.
 
 This strategic utilization empowered our project to stay dynamically aligned with ongoing events and swiftly gather comprehensive insights crucial for in-depth examination and effective disaster management strategies.
 
@@ -92,6 +112,34 @@ Key features of Streamlit:
 
 We intend to present our predictions and outputs through an intuitive GUI (Graphical User Interface) interface. This interface will facilitate user-friendly access to our analytical insights, promoting effective decision-making in disaster and calamity management. For developing GUI we use streamlit.
 
+## Results
+
+By analyzing the conversations and trends on Twitter during such situations, the project has uncovered patterns by validating the truthfulness of information, improve situational awareness, and ultimately contribute to the resilience and safety of individuals and communities faced with critical events. The major motivation behind the project is to save lives and improve public safety by harnessing the power of Twitter data to access real-time information, understand & validate public sentiment.
+
+The implemented model serves as a reliable, strictly filtering classification algorithm that identifies the genuinity in the tweet text. The information of geolocation extraction further amplifies the utility of the project by only highlighting meaningful insights from the text, allowing the user to ignore irrelevant details.
+
+The insights paired with a seamless interface which is easy to use enables calamity management and monitoring individuals to track real-time events on the social media.
+
+#### Drawbacks
+
+There were several instances where the model mislabeled the tweet, yet it wasn't too far off in the confidence level, proving that the threshold can be adjusted to allow robust filtering.
+
+This project requires capital allowance to a certain extent, yet it was made within the limits and capacities of the team members.
+
+#### Deployment
+
+🔗 The GUI made with the script in the disastertweetapp/ folder has been deployed on this link: (https://disaster-tweet-app-algorhythms.streamlit.app/)
+
+#### GUI Screenshot
+
+![](images/hashtag_earthquake.png){fig-align="center" width="90%"}
+
 ## Conclusion
 
-In summary, our project endeavors to provide a robust and comprehensive solution to the challenges posed by dynamic disasters and calamities. By using models like BERT and LSTM
+-   In summary, our project endeavors to provide a robust and comprehensive solution to the challenges posed by dynamic disasters and calamities. By using models like BERT and LSTM
+
+-   It has been a constant effort of the developer community to utilize twitter and generate analysis to manage/monitor disasters. However, there are some challenges when considering social media as an information source for disaster response. In particular, social media streams contain large amounts of irrelevant messages such as rumors, advertisements, or even misinformation.
+
+-   This project is an improvement to previously attempted disaster tweet monitoring systems hosted by Google (Tensorflow and Kaggle competitions). What we achieved on top of the previous attempts, is the improved model scores and higher analytic insights on the location tracking.
+
+-   This particular attempt can serve as a derivation for improve intelligence received during a crisis, and can enable intelligent officers to access calls for help quickly.
