@@ -88,7 +88,7 @@ Key features of Streamlit:
 
 4.  **Real-Time Updates:** Streamlit's reactive framework automatically updates the app in response to changes in the underlying data or user inputs, providing a dynamic and responsive user experience.
 
-5.  **Deployment:** Once the application is built, it can be easily deployed to various platforms, including cloud services like Heroku, AWS, or even on Streamlit's own sharing platform.
+5.  **Deployment:** Once the application is built, it was deployed upon Streamlit's own cloud sharing platform.
 
 We intend to present our predictions and outputs through an intuitive GUI (Graphical User Interface) interface. This interface will facilitate user-friendly access to our analytical insights, promoting effective decision-making in disaster and calamity management. For developing GUI we use streamlit.
 
