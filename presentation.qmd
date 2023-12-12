@@ -26,21 +26,11 @@ execute:
 ---
 
 ```{r}
-#| label: load-packages
-#| include: false
-
-# Load packages here
-pacman::p_load(tidymodels,
-               tidyverse)
-
-```
-
-```{r}
 #| label: setup
 #| include: false
 
 # Plot theme
-ggplot2::theme_set(ggplot2::theme_minimal(base_size = 11))
+# ggplot2::theme_set(ggplot2::theme_minimal(base_size = 11))
 
 # For better figure resolution
 knitr::opts_chunk$set(
@@ -49,24 +39,6 @@ knitr::opts_chunk$set(
   fig.width = 6, 
   fig.asp = 0.618 
   )
-```
-
-```{r}
-#| label: load-data
-#| include: false
-# Load data here
-data(mtcars)
-mtcars$speed <- mtcars$hp / mtcars$wt
-
-data("penguins")
-```
-
-```{css, echo=FALSE}
-
-.small-font {
-  font-size: 0.8em;
-}
-
 ```
 
 ## Introduction: {.smaller}
