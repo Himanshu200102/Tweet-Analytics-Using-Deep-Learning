@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="The Algo Rythms">
 
-<title>Project Title - Tweet Analytics for Disaster &amp; Calamity Management</title>
+<title>🕊️Disaster Tweet Analysis - 🕊️ Tweet Analytics for Disaster &amp; Calamity Management</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,8 +56,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -72,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Project Title</span>
+    <span class="navbar-title">🕊️Disaster Tweet Analysis</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -128,8 +127,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tokenization" id="toc-tokenization" class="nav-link" data-scroll-target="#tokenization">Tokenization</a></li>
   <li><a href="#bert-model-implementation" id="toc-bert-model-implementation" class="nav-link" data-scroll-target="#bert-model-implementation">BERT Model Implementation</a></li>
   <li><a href="#lstm-model-exploration" id="toc-lstm-model-exploration" class="nav-link" data-scroll-target="#lstm-model-exploration">LSTM Model Exploration</a></li>
-  <li><a href="#data-extraction-from-tweepy" id="toc-data-extraction-from-tweepy" class="nav-link" data-scroll-target="#data-extraction-from-tweepy">Data Extraction from Tweepy</a></li>
-  <li><a href="#gui-interface-presentation" id="toc-gui-interface-presentation" class="nav-link" data-scroll-target="#gui-interface-presentation">GUI Interface Presentation</a></li>
+  <li><a href="#data-extraction-from-ntscraper" id="toc-data-extraction-from-ntscraper" class="nav-link" data-scroll-target="#data-extraction-from-ntscraper">Data Extraction from ntscraper</a></li>
+  <li><a href="#gui-interface-presentation-streamlit" id="toc-gui-interface-presentation-streamlit" class="nav-link" data-scroll-target="#gui-interface-presentation-streamlit">GUI Interface Presentation (Streamlit)</a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
@@ -140,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tweet Analytics for Disaster &amp; Calamity Management</h1>
+<h1 class="title">🕊️ Tweet Analytics for Disaster &amp; Calamity Management</h1>
 <p class="subtitle lead">INFO 523 - Project Final</p>
 </div>
 
@@ -164,42 +163,76 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>In addressing the dynamic challenges of disasters, our project, Tweet Analytics for Disaster &amp; Calamity Management, strives to generate vital and reliable information as a valuable resource for those in need. Our focus involves discerning the distinction between fake and genuine tweets pertaining to disasters like forest fires, earthquakes, and floods. Employing binary classification and advanced models, we analyze real-time data to deliver life-saving insights through an integrated GUI. This initiative aims to provide actionable and trustworthy information for effective disaster management and response.</p>
+<p>Embracing the evolving landscape of disaster management, our project, Tweet Analytics for Disaster &amp; Calamity Management, endeavors to curate critical and dependable insights as a beacon for those affected. Central to our endeavor is the differentiation between authentic and misleading tweets concerning calamities such as forest fires, earthquakes, and floods. Leveraging binary classification models and cutting-edge algorithms, we meticulously scrutinize live data streams, culminating in a comprehensive GUI that delivers actionable intelligence. Our mission is dedicated to furnishing trustworthy, real-time information to enhance the efficiency and efficacy of disaster response and management protocols.</p>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In the face of the ever-changing landscape of disasters and calamities, effective and timely management requires innovative solutions that harness the power of social media. Our project addresses the inherent challenges in traditional methods of information gathering during crises, focusing on Twitter as a valuable source of real-time data. With a proactive approach, we delve into the classification of tweets using techniques like tokenisation to find keywords for disaster and non-disaster-related content and advanced models like BERT and LSTM. By extracting data from topics such as forest fires and earthquakes using Tweepy, we aim to contribute to a robust disaster management strategy. The upcoming integration of a user-friendly GUI interface will facilitate the dissemination of our predictions and outputs, ensuring a comprehensive and accessible tool for emergency responders and disaster management professionals.</p>
+<p>Amidst the ever-evolving landscape of disasters, effective and prompt management necessitates innovative solutions leveraging the dynamic realm of social media. Our project stands at the forefront, addressing the challenges inherent in conventional crisis information gathering by harnessing the power of Twitter as a vital source of real-time data. With a proactive stance, we delve into tweet classification, employing techniques like tokenization to distill keywords related to disasters and non-disaster content, coupled with advanced models such as BERT and LSTM. Through data extraction from crucial topics like forest fires and earthquakes via Tweepy, our aim is to enrich a resilient disaster management strategy. The imminent integration of a user-friendly GUI interface will play a pivotal role in disseminating our predictions and outputs, culminating in a comprehensive and accessible tool for emergency responders and disaster management professionals.</p>
 </section>
 <section id="approach" class="level2">
 <h2 class="anchored" data-anchor-id="approach">Approach</h2>
 <section id="fake-tweet-classification" class="level3">
 <h3 class="anchored" data-anchor-id="fake-tweet-classification">Fake Tweet Classification</h3>
-<p>We performed classification of tweets into disaster-related and non-disaster-related categories using keyword count, character count, and word count distribution. This analysis served to enhance our understanding of the content and context of tweets during calamities. To gain deeper insights, we generated word clouds for both disaster and non-disaster tweets, providing a visual representation of the most frequent words in each category.</p>
+<p>Our approach involved a comprehensive classification of tweets, distinguishing between disaster-related and non-disaster-related content based on diverse metrics like keyword count, character count, and word count distributions. This meticulous analysis was instrumental in unraveling the nuances inherent in tweets during times of calamity, allowing for a more profound comprehension of their content and contextual relevance. To delve further into these insights, we constructed illuminating word clouds for both disaster and non-disaster tweets. These visual representations encapsulated the most prevalent words in each category, offering a vivid portrayal of the prevalent themes and discourse within the realm of calamitous events.</p>
 </section>
 <section id="tokenization" class="level3">
 <h3 class="anchored" data-anchor-id="tokenization">Tokenization</h3>
-<p>We tokenized the text data with the help of <code>Tokenizer()</code> from <code>Keras</code> library in python with vocabulary size of 1000. After tokenization, we had a list of sequences where each sequence represents the texts converted into a sequence of integers .</p>
+<p>Tokenization is the process of breaking down text into smaller units, known as tokens. These tokens can be individual words or subwords, phrases, or even characters, depending on the specific tokenization technique used. The primary goal of tokenization is to facilitate natural language processing tasks by converting textual data into a format that can be easily handled by algorithms and models.</p>
+<p>Utilizing the Tokenizer() function from the Keras library in Python, we meticulously tokenized our textual data with a specific vocabulary size set at 1000. The outcome of this process yielded a list of sequences, where each sequence encapsulated the transformation of textual content into a sequence of integers. This transformation paved the way for a structured and numerical representation of the textual information, laying the groundwork for subsequent analysis and modeling endeavors.</p>
 </section>
 <section id="bert-model-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="bert-model-implementation">BERT Model Implementation</h3>
+<p>BERT, which stands for Bidirectional Encoder Representations from Transformers, is a pre-trained language representation model developed by Google. It’s designed to understand the context of words in a sentence by capturing bidirectional relationships in the text.</p>
+<p>Key features of BERT:</p>
+<ol type="1">
+<li><p><strong>Bidirectional Encoding:</strong> BERT considers the full context of a word by looking at both the left and right context in all layers of the model. This bidirectional approach helps in understanding the nuances of language.</p></li>
+<li><p><strong>Pre-trained Model:</strong> BERT is pre-trained on large corpora of text, learning to predict missing words in a sentence, which enables it to capture intricate relationships between words.</p></li>
+<li><p><strong>Fine-tuning:</strong> BERT’s pre-trained weights can be fine-tuned on specific tasks by adding additional layers or training it on domain-specific data. This allows BERT to be adapted to various natural language processing (NLP) tasks like text classification, named entity recognition, question answering, and more.</p></li>
+<li><p><strong>Embeddings:</strong> BERT generates contextual word embeddings that capture the meaning of a word based on its context in a sentence. These embeddings are used as features for downstream NLP tasks.</p></li>
+</ol>
 <p>We tried to implement a BERT-based binary classification model, achieving an accuracy of approximately 82% after three epochs. The BERT model is renowned for its contextual understanding and representation capabilities. Due to lack of computational resources we had to abort the model and moved ahead with a different approach.</p>
 </section>
 <section id="lstm-model-exploration" class="level3">
 <h3 class="anchored" data-anchor-id="lstm-model-exploration">LSTM Model Exploration</h3>
-<p>In response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 78%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.</p>
+<p>Long Short-Term Memory (LSTM) is a type of recurrent neural network (RNN) architecture designed to handle the issue of vanishing or exploding gradients in traditional RNNs. LSTMs are capable of capturing long-term dependencies in sequential data by using a memory cell that can maintain information over long sequences.</p>
+<p>Key features of LSTM:</p>
+<ol type="1">
+<li><p><strong>Memory Cells:</strong> LSTMs use memory cells to store information, which allows them to remember and access information from earlier time steps in a sequence.</p></li>
+<li><p><strong>Gates:</strong> LSTMs contain three gates: input gate, forget gate, and output gate. These gates regulate the flow of information into and out of the memory cell, enabling the network to learn when to forget or update information.</p></li>
+<li><p><strong>Long-Term Dependencies:</strong> LSTMs excel in capturing and retaining information over longer sequences, making them suitable for tasks involving sequential data like text, time series, speech, etc.</p></li>
+<li><p><strong>Training:</strong> LSTMs are trained using backpropagation through time (BPTT) and can be optimized using various gradient descent algorithms like Adam, RMSprop, etc.</p></li>
+</ol>
+<p>In response to resource limitations, we explored the implementation of an LSTM (Long Short-Term Memory) model, achieving a commendable accuracy of around 82%. The LSTM model, a type of recurrent neural network, demonstrated its effectiveness in capturing sequential dependencies in the data.</p>
 </section>
-<section id="data-extraction-from-tweepy" class="level3">
-<h3 class="anchored" data-anchor-id="data-extraction-from-tweepy">Data Extraction from Tweepy</h3>
-<p>We leveraged the Tweepy API to extract data pertaining to specific disaster topics, such as forest fires, floods, earthquakes, and hurricanes. This enabled us to gather real-time information and enhance the comprehensiveness of our analysis.</p>
+<section id="data-extraction-from-ntscraper" class="level3">
+<h3 class="anchored" data-anchor-id="data-extraction-from-ntscraper">Data Extraction from ntscraper</h3>
+<p>The Ntscraper library is a user-friendly tool tailored for effortless data retrieval from Nitter instances. It empowers users to extract tweets efficiently through a range of functionalities:</p>
+<ol type="1">
+<li><p><strong>Search and Scraping Capabilities:</strong> Easily locate and extract tweets containing specific terms or hashtags, streamlining the process of aggregating targeted content.</p></li>
+<li><p><strong>User Profile Scraping:</strong> Seamlessly retrieve tweets from user profiles, enabling a focused exploration of individual user activity.</p></li>
+<li><p><strong>User Profile Information:</strong> Fetch pertinent profile details like the display name, username, tweet count, and profile picture, offering comprehensive insights into user profiles.</p></li>
+</ol>
+<p>Furthermore, in the absence of a specified instance, the scraper automatically selects a random public instance, ensuring a seamless scraping experience regardless of the instance availability.</p>
+<p>Utilizing the robust capabilities of the ntscraper API, our initiative focused on extracting critical data related to distinct disaster topics, encompassing forest fires, floods, earthquakes, and hurricanes. By harnessing this API, we accessed real-time and contextually relevant information, significantly enriching the depth and breadth of our analysis.</p>
+<p>This strategic utilization empowered our project to stay dynamically aligned with ongoing events and swiftly gather comprehensive insights crucial for in-depth examination and effective disaster management strategies.</p>
 </section>
-<section id="gui-interface-presentation" class="level3">
-<h3 class="anchored" data-anchor-id="gui-interface-presentation">GUI Interface Presentation</h3>
-<p>As part of our future work, we intend to present our predictions and outputs through an intuitive GUI (Graphical User Interface) interface. This interface will facilitate user-friendly access to our analytical insights, promoting effective decision-making in disaster and calamity management.</p>
+<section id="gui-interface-presentation-streamlit" class="level3">
+<h3 class="anchored" data-anchor-id="gui-interface-presentation-streamlit">GUI Interface Presentation (Streamlit)</h3>
+<p>Streamlit is an open-source Python library that simplifies the process of creating web applications for data science and machine learning projects. It allows developers and data scientists to build interactive and customizable web-based applications using simple Python scripts.</p>
+<p>Key features of Streamlit:</p>
+<ol type="1">
+<li><p><strong>Easy-to-Use:</strong> Streamlit provides a straightforward and intuitive API that allows users to create web applications using familiar Python scripting.</p></li>
+<li><p><strong>Rapid Prototyping:</strong> With Streamlit, you can quickly create interactive dashboards, visualizations, and applications by leveraging its built-in widgets and components.</p></li>
+<li><p><strong>Integration:</strong> It seamlessly integrates with popular data science libraries like Pandas, Matplotlib, Plotly, and more, enabling easy incorporation of data manipulation and visualization capabilities into web apps.</p></li>
+<li><p><strong>Real-Time Updates:</strong> Streamlit’s reactive framework automatically updates the app in response to changes in the underlying data or user inputs, providing a dynamic and responsive user experience.</p></li>
+<li><p><strong>Deployment:</strong> Once the application is built, it was deployed upon Streamlit’s own cloud sharing platform.</p></li>
+</ol>
+<p>We intend to present our predictions and outputs through an intuitive GUI (Graphical User Interface) interface. This interface will facilitate user-friendly access to our analytical insights, promoting effective decision-making in disaster and calamity management. For developing GUI we use streamlit.</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>In summary, our project endeavors to provide a robust and comprehensive solution to the challenges posed by dynamic disasters and calamities. Through a combination of advanced models, insightful visualizations, and real-time data extraction, we aim to contribute to proactive and informed disaster management strategies.</p>
+<p>In summary, our project endeavors to provide a robust and comprehensive solution to the challenges posed by dynamic disasters and calamities. By using models like BERT and LSTM</p>
 
 
 </section>

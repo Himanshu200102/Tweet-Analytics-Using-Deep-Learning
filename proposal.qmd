@@ -26,12 +26,11 @@ The major motivation behind the proposed project is to save lives and improve pu
 
 ## Dataset
 
-This dataset has been taken from **Natural Language Processing with Disaster Tweets** competition. Twitter has become an important communication channel in times of emergency.\
-The ubiquitousness of smartphones enables people to announce an emergency they're observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+This dataset has been taken from [**Natural Language Processing with Disaster Tweets**](https://www.kaggle.com/competitions/nlp-getting-started) competition. Kaggle provides a large variation of datasets for several tasks. From all the annotated datasets, labelled Twitter datasets with accurate findings is a challenge to get. Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they're observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
 
 There are two main files associated with this dataset:
 
--   train.csv - credibility ratings and reasoning entered by turkers\*\* for each topic. Each row has following tab separated fields:
+-   `train.csv` \| `test.csv`
 
     **Data Glimpse**
 
@@ -52,28 +51,19 @@ There are two main files associated with this dataset:
     **Data Description**
 
     | Column Name | Data Type       | Description                                                                                     |
-    |-------------|-----------------|-------------------------------------------------------------------------------------------------|
+    |------------|------------|-----------------------------------------------|
     | id          | Integer         | A unique identifier for each tweet                                                              |
     | text        | List of strings | It contains the text of the tweet                                                               |
     | location    | List of strings | The location the tweet was sent from (may be blank)                                             |
     | keyword     | List of Strings | A particular keyword from the tweet (may be blank)                                              |
     | target      | Integer         | in **train.csv** only, this denotes whether a tweet is about a real disaster (`1`) or not (`0`) |
 
-    This data set will be used to train the model on the credibility of the tweet
+    The train data set will be used to train the model on the credibility of the tweet, and the test data will be used to validate the training parameters.
 
--   test.csv - tweets corresponding to each topic fetched using the search API. Each row has following tab separated fields:
-
-    **Data Description**
-
-    This dataset will be used as an index to fetch and test specific types of disaster tweets (like earthquake).
-
-For streaming API, we will be using tweepy, a python package meand for extracting real-time tweets using keywords. It will be authenticated using a developer account from the v2 API endpoint. This endpoint will serve on a free tier to fetch and consume streaming data from twitter (https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data). The individual data streamed by this API are JSON encoded, and fall into the following types:
+For streaming API, we will be using [NTscraper](https://pypi.org/project/ntscraper/), a webscraping based python package, to create a Nitter object which uses Beautiful soup in the back end to fetch tweet details such as "text", "username" and statistics such as "likes","comments" and "retweets". This is almost similar to the Tweet JSON obtained from the twitter v2 API.\
+*The individual data streamed by the official twitter API (https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data) has been revoked.*
 
 -   Tweets: Individual Tweet JSON objects
-
--   Keep-alive Signals: Carriage returns to prevent your connection from timing out
-
--   System messages: E.g. notification of a force disconnect. Note that the actual disconnection is accomplished via normal HTTP protocols, rather than through the message itself. In some cases the disconnect system message may not arrive, making it critical that you monitor the keep-alive signal (see below for more information).
 
     -   We will be utilizing the Tweet JSON (shown below) to analyze and classify them into real or fake. This can be particularly useful for disaster management departments, as the analysis of these tweets can help extract crucial information, such as the geolocation of the tweet, which can be used to send help to those in need.
 
@@ -93,58 +83,28 @@ For streaming API, we will be using tweepy, a python package meand for extractin
             "url": "https:\/\/dev.twitter.com\/",
             "description": "Your official source for Twitter Platform news, updates & events. Need technical help? Visit https:\/\/twittercommunity.com\/ \u2328\ufe0f #TapIntoTwitter"
           },
-          "place": {   
-          },
-          "entities": {
-            "hashtags": [      
-            ],
-            "urls": [
-              {
-                "url": "https:\/\/t.co\/XweGngmxlP",
-                "unwound": {
-                  "url": "https:\/\/cards.twitter.com\/cards\/18ce53wgo4h\/3xo1c",
-                  "title": "Building the Future of the Twitter API Platform"
-                }
-              }
-            ],
-            "user_mentions": [     
-            ]
+          "stats": {
+            "likes": 12,
+            "comments": 1,
+            "retweets": 0
+            },
           }
         }
         ```
 
-        +------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
-        | Key Name                                                                                                         | Data Type       | Description                                                                                                           |
-        +==================================================================================================================+=================+=======================================================================================================================+
-        | created_at                                                                                                       | String          | UTC time when this Tweet was created.                                                                                 |
-        +------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
-        | id_str                                                                                                           | String          | The string representation of the unique identifier for this Tweet.                                                    |
-        +------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
-        | text                                                                                                             | String          | The actual UTF-8 text of the status update.                                                                           |
-        +------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
-        | user \| User object \| The user who posted this Tweet. See User data dictionary for complete list of attributes. |                 |                                                                                                                       |
-        +------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
-        | place                                                                                                            | Places Object   | When present, indicates that the tweet is associated (but not necessarily originating from) a Place.                  |
-        +------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
-        | entities                                                                                                         | Entities Object | Entities which have been parsed out of the text of the Tweet. Additionally see Entities in Twitter Objects. Example:\ |
-        |                                                                                                                  |                 | { "hashtags":\[\],                                                                                                    |
-        |                                                                                                                  |                 |                                                                                                                       |
-        |                                                                                                                  |                 | "urls":\[\],                                                                                                          |
-        |                                                                                                                  |                 |                                                                                                                       |
-        |                                                                                                                  |                 | "user_mentions":\[\],                                                                                                 |
-        |                                                                                                                  |                 |                                                                                                                       |
-        |                                                                                                                  |                 | "media":\[\],                                                                                                         |
-        |                                                                                                                  |                 |                                                                                                                       |
-        |                                                                                                                  |                 | "symbols":\[\]                                                                                                        |
-        |                                                                                                                  |                 |                                                                                                                       |
-        |                                                                                                                  |                 | "polls":\[\] }                                                                                                        |
-        +------------------------------------------------------------------------------------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+
+        | Key Name   | Data Type    | Description                                                                                   |
+        |----------------------------|--------------|------------------------------|
+        | created_at | String       | UTC time when this Tweet was created.                                                         |
+        | id_str     | String       | The string representation of the unique identifier for this Tweet.                            |
+        | text       | String       | The actual UTF-8 text of the status update.                                                   |
+        | user       | User object  | The user who posted this Tweet. See User data dictionary for complete list of attributes.     |
+        | stats      | Stats Object | A dictinary contatining tweet statistics such as number of likes, total comments and retweets |
 
-The combination of these two sources provides a rich and comprehensive data set for your application. The credibility annotations in the CREDBANK data can aid in the fake/real classification, while the academictwitteR package can help in collecting real-time data for ongoing analysis.
+The combination of these two sources provides a rich and comprehensive data set for our application.
 
 ## Reason For Choosing This Source
 
-These dataset's not only provide a large volume of data but also offer unique features that align well with our project's objectives. The combination of historical data from `CREDBANK` and real-time data from `academictwitteR` can provide a robust foundation for the tweet analysis application.
+These dataset's not only provide a large volume of data but also offer unique features that align well with our project's objectives. The combination of historical data from `Kaggle` and real-time data from `NTscraper` can provide a robust foundation for the tweet analysis application.
 
 ## Problem Statement
 
@@ -231,7 +191,7 @@ These are the planned approaches, and we intend to explore and solve the problem
 ## Plan of Attack
 
 | Week            | Weekly Task                                                                                                                                       |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------|----------------------------------------------------------|
 | Week 1          | Proposal.                                                                                                                                         |
 | Week 2          | Data Exploration and Preprocessing.                                                                                                               |
 | Week 3 - Week 4 | Working on setting up the API and Extracting Feature using methods like Tokenization, lemmatization etc. and train Models and perform prediction. |
@@ -255,6 +215,20 @@ These are the planned approaches, and we intend to explore and solve the problem
     -   Other code files are added to review and understand the source of the output
 
     -   Relevant datasets used for the scripts are under the `data/` folder in the main directory.
+
+-   `disastertweetapp/`: This folder contains the code for GUI built using streamlit
+
+    -   `app.py`: Main folder containing the GUI code of the app.
+
+    -   `classification_script.py`: This file contains code for loading the trained models and functions to predict the class labels if given text. It also contains the code to extract location from the tweet.
+
+    -   `embedtweet.py`: This file contains code to embed tweets in the GUI
+
+    -   `fetchtweets.py`: This file contains the streaming client script to fetch real-time tweets using keywords.
+
+    -   `requirements.py`: requirements file containing package details
+
+    -   `models/`: Folder containing the serialized models
 
 -   `data/`: This folder contains data files or datasets that are used in the project.
 

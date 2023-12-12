@@ -61,6 +61,14 @@ mtcars$speed <- mtcars$hp / mtcars$wt
 data("penguins")
 ```
 
+```{css, echo=FALSE}
+
+.small-font {
+  font-size: 0.8em;
+}
+
+```
+
 ## Introduction: {.smaller}
 
 -   In times of disasters, individuals frequently turn to social media platforms to communicate information regarding required aid or incidents.
@@ -97,49 +105,49 @@ Our analysis plan involved exploring the dataset for suitability of the training
 
 ## Pie Chart:
 
-::: columns
-::: {.column width="50%"}
+::: {.columns .smaller}
+::: {.column .small-font width="30%"}
 This is the target variable distribution of training dataset. With a fairly even distribution, our model had a high chance of reliable training outcomes.
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 ![](images/Pie%20chart.png){fig-align="center"}
 :::
 :::
 
 ## Bar Plot:
 
-::: columns
-::: {.column width="50%"}
+::: {.columns .smaller}
+::: {.column .small-font width="30%"}
 The main unique keywords that fall under the tweets tagged as "disaster tweets" has the following distribution. It is evident that tweets that talk about the disaster have really focuses terms according to the disaster.
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 ![](images/Target%20distribution.jpg){fig-align="center"}
 :::
 :::
 
 ## Density Plot:
 
-::: columns
-::: {.column width="50%"}
-With a normally equivalent distribution in both the categories, we had the notion that the model will receive sufficient learning tokens
+::: {.columns .smaller}
+::: {.column .small-font width="30%"}
+With both distribution of the categories not being significantly different from an ideal normal distribution, we had the notion that the model will receive sufficient learning tokens
 :::
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 ![](images/Unique%20word%20count%20distribution.jpg){fig-align="center"}
 :::
 :::
 
 ## Word Cloud:
 
-::: columns
-::: {.column width="50%"}
+::: {.columns .smaller}
+::: {.column .small-font width="40%"}
 This is the wordcloud from the combined tweets of the dataset, for the "disaster" class.
 :::
 
-::: {.column width="50%"}
-![](images/Disaster_word_cloud.png){fig-align="center"}
+::: {.column width="60%"}
+![](images/Disaster_word_cloud.png){fig-align="center" width="65%"}
 :::
 :::
 

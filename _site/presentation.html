@@ -8,10 +8,10 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="The Algo-Rythms Team : Visalakshi Prakash Iyer, Himanshu Nimbarte, Shakir Ahmed, Avikal Singh, Poojitha Pasala">
-  <title>Project Title - Tweet Analytics for Disaster and Calamity Management</title>
+  <title>🕊️Disaster Tweet Analysis - Tweet Analytics for Disaster and Calamity Management</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,7 +325,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="images/watercolour_sys02_img34_teacup-ocean.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
+<section id="title-slide" data-background-image="images/slide_background.jpg" data-background-opacity="0.7" data-background-size="stretch" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Tweet Analytics for Disaster and Calamity Management</h1>
   <p class="subtitle">INFO 523 - Fall 2023 - Project Final</p>
 
@@ -338,6 +338,18 @@ The Algo-Rythms Team : Visalakshi Prakash Iyer, Himanshu Nimbarte, Shakir Ahmed,
 </div>
 
 </section>
+<section class="slide level2">
+
+<div class="cell">
+<style type="text/css">
+
+.small-font {
+  font-size: 0.8em;
+}
+
+</style>
+</div>
+</section>
 <section id="introduction" class="slide level2 smaller">
 <h2>Introduction:</h2>
 <ul>
@@ -348,26 +360,110 @@ The Algo-Rythms Team : Visalakshi Prakash Iyer, Himanshu Nimbarte, Shakir Ahmed,
 <section id="goal-and-problem-statement" class="slide level2 smaller">
 <h2>Goal and problem statement:</h2>
 <ul>
-<li><p><strong>Goal-</strong> Conduct classification on tweets during crisis, validate tweets, and deliver accurate information to disaster management teams, thereby contributing to the smooth functioning of rescue operations and boosting the safety and resilience of communities during critical events.</p></li>
-<li><p><strong>Problem statement-</strong> In the face of dynamic disasters, a proactive approach to information is essential. Traditional methods can lag, hampering swift responses and resource allocation. Validating Twitter-shared information is critical to prevent panic and confusion among affected communities.</p></li>
-</ul>
-</section>
-<section id="data" class="slide level2 smaller">
-<h2>Data:</h2>
-<ul>
-<li><p>Real-time tweets fetched from twitter based on type of disaster (hashtag) and location. (For testing)</p></li>
-<li><p>Fake Tweet Classification dataset from kaggle is used for classification of tweets as real or fake. (For training)</p></li>
+<li><p><strong>Goal-</strong> In the face of dynamic disasters, a proactive approach to information is essential. Traditional methods can lag, hampering swift responses and resource allocation. Validating Twitter-shared information is critical to prevent panic and confusion among affected communities.</p></li>
+<li><p><strong>Problem statement-</strong> Conduct classification on tweets during crisis, validate tweets, and deliver accurate information to disaster management teams, thereby contributing to the smooth functioning of rescue operations and boosting the safety and resilience of communities during critical events.</p></li>
 </ul>
 </section>
 <section id="execution-of-plan" class="slide level2 smaller">
 <h2>Execution of plan:</h2>
 <ol type="1">
-<li><strong>Created a new streaming pipeline-</strong> Used NTscraper and tweepy package to create a Nitter object which uses Beautiful soup in the back end to fetch tweet details such as “text”, “username” and statistics such as “likes”,“comments” and “retweets”.</li>
+<li><strong>Created a new streaming pipeline-</strong> Used NTscraper to create a Nitter object which uses Beautiful soup in the back end to fetch tweet details such as “text”, “username” and statistics such as “likes”,“comments” and “retweets”.</li>
 <li><strong>Model building-</strong> Used LSTM model to build a fake news classification model and give us the relevant and important details corresponding to disaster management.</li>
 <li><strong>Model training-</strong> Used Kaggle dataset to perform model training and get accuracy scores.</li>
-<li><strong>Model testing-</strong> Use real time data based on hastag- “#forestfire” and location set to near “USA”.</li>
-<li><strong>GUI creation-</strong> Integrate a search bar for input of hastag, after which the model fetches the data and performs classification. The classified real tweets are displayed with tweet link, location (if available) and the user.</li>
+<li><strong>Model testing-</strong> Use real time data based on hashtag- “#forestfire” and location set to near “USA”.</li>
+<li><strong>GUI creation-</strong> Integrate a search bar for input of hashtag, after which the model fetches the data and performs classification. The classified real tweets are displayed with tweet link, location (if available) and the user.</li>
 </ol>
+</section>
+<section id="data" class="slide level2 smaller">
+<h2>Data:</h2>
+<ul>
+<li><p>Twitter API enables developers to fetch tweets in real-time using keywords. Since the previous month, twitter had revoked the access to pull tweets in free tier.</p></li>
+<li><p>To get the Real-time tweets, we resorted to creating and utilizing a Nitter instance from a web-scraping based package. The tweets are fetched based on type of disaster (hashtag) and location.</p></li>
+<li><p>These tweets will be then analysed in real-time, annotated with insights generated from our modeling process</p></li>
+<li><p>The modeling required Fake Tweet Classification dataset from kaggle is used for classification of tweets as real or fake.</p></li>
+<li><p>The model trained on this dataset was utilized for classifying and segregating the tweets to filter out spotlight tweets.</p></li>
+</ul>
+<p>Our analysis plan involved exploring the dataset for suitability of the training. The insights will be shown in the next slides</p>
+</section>
+<section id="pie-chart" class="slide level2">
+<h2>Pie Chart:</h2>
+<div class="columns smaller">
+<div class="column small-font" style="width:30%;">
+<p>This is the target variable distribution of training dataset. With a fairly even distribution, our model had a high chance of reliable training outcomes.</p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Pie chart.png"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bar-plot" class="slide level2">
+<h2>Bar Plot:</h2>
+<div class="columns smaller">
+<div class="column small-font" style="width:30%;">
+<p>The main unique keywords that fall under the tweets tagged as “disaster tweets” has the following distribution. It is evident that tweets that talk about the disaster have really focuses terms according to the disaster.</p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Target distribution.jpg"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="density-plot" class="slide level2">
+<h2>Density Plot:</h2>
+<div class="columns smaller">
+<div class="column small-font" style="width:30%;">
+<p>With both distribution of the categories not being significantly different from an ideal normal distribution, we had the notion that the model will receive sufficient learning tokens</p>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Unique word count distribution.jpg"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="word-cloud" class="slide level2">
+<h2>Word Cloud:</h2>
+<div class="columns smaller">
+<div class="column small-font" style="width:40%;">
+<p>This is the wordcloud from the combined tweets of the dataset, for the “disaster” class.</p>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Disaster_word_cloud.png" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section>
+<section id="training-outcomes" class="title-slide slide level1 center">
+<h1>Training Outcomes</h1>
+
+</section>
+<section id="bert" class="slide level2 smaller">
+<h2>BERT</h2>
+<ul>
+<li><p>First the dataset tweets were broken down through tokenization. These tokens can be individual words or subwords, phrases, or even characters, depending on the specific tokenization technique used. The primary goal of tokenization is to facilitate natural language processing tasks by converting textual data into a format that can be easily handled by algorithms and models.</p></li>
+<li><p>Training BERT was computationally expensive, and well as memory intensive. The accuracy score for BERT was 97% on training and 82% on testing.</p></li>
+</ul>
+</section>
+<section id="lstm" class="slide level2 smaller">
+<h2>LSTM</h2>
+<ul>
+<li><p>LSTM on the other hand was not memory intensive, although it was fairly heavy to train, it was able to achieve a great learning curve. It achieved a training accuracy of 83% and testing accuracy of 80%.</p></li>
+<li><p>When both the models were tested on the real-time set, LSTM provided better results compared to BERT. Owing to the fact that some fake tweets which contain the main keywords, can be misclassified due to the attention mechanism.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="outcome" class="title-slide slide level1 center">
+<h1>Outcome</h1>
+
 </section>
 <section id="results" class="slide level2 smaller">
 <h2>Results:</h2>
@@ -389,14 +485,27 @@ The Algo-Rythms Team : Visalakshi Prakash Iyer, Himanshu Nimbarte, Shakir Ahmed,
 <p>Now, we are going to demonstrate our project in action.</p>
 <p><a href="https://disaster-tweet-app-algorhythms.streamlit.app/">GUI for Disaster Tweet Analysis</a></p>
 </section>
+<section id="challenges-faced" class="slide level2 smaller">
+<h2>Challenges Faced</h2>
+<ul>
+<li><p>We were not able to get access to fetch tweets with twitter developer API, because of the revoked access of free tier developers. This was later improvised using a web scraping object</p></li>
+<li><p>There were a greater need for computational power, as text based models are computationally heavy. We utilized online resources and GPU to train the model and load them.</p></li>
+<li><p>Response time is a greater requirement when it comes to tools like disaster monitoring systems. With heavy models running in the background, memory optimization and caching plays a great role.</p></li>
+</ul>
+</section>
 <section id="conclusion" class="slide level2 smaller">
 <h2>Conclusion:</h2>
+<ul>
+<li><p>It has been a constant effort of the developer community to utilize twitter and generate analysis to manage/monitor disasters. However, there are some challenges when considering social media as an information source for disaster response. In particular, social media streams contain large amounts of irrelevant messages such as rumors, advertisements, or even misinformation.</p></li>
+<li><p>This project is an improvement to previously attempted disaster tweet monitoring systems hosted by Google (Tensorflow and Kaggle competitions). What we achieved on top of the previous attempts, is the improved model scores and higher analytic insights on the location tracking.</p></li>
+<li><p>This particular attempt can serve as a derivation for improve intelligence received during a crisis, and can enable intelligent officers to access calls for help quickly.</p></li>
+</ul>
 
 
 <img src="images\twitter_logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://info-523-exercises.github.io/project-final-The-Algo-Rhythms/">🕊 The Algo-Rhythms</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
